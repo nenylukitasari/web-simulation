@@ -13,23 +13,30 @@
 
             <div id="main-menu" class="main-menu collapse navbar-collapse">
                 <ul class="nav navbar-nav">
-                    <li class="active">
-                        <a href="/"> <i class="menu-icon fa fa-dashboard"></i>Dashboard </a>
-                    </li>
-                    
                     <li class="menu-item-has-children dropdown">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="menu-icon fa fa-laptop"></i>Simulasi</a>
                         <ul class="sub-menu children dropdown-menu">
-                            <li class="menu-item-has-children dropdown">
-                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">  <i class="fa fa-puzzle-piece"></i>Best Add On</a>
-                                <ul class="sub-menu children dropdown-menu">
-                                    <li><i class="fa fa-puzzle-piece"></i><a href="ui-buttons.html">Minipack</a></li>
-                                    <li><i class="fa fa-puzzle-piece"></i><a href="ui-buttons.html">STB Tambahan</a></li>
-                                    <li><i class="fa fa-puzzle-piece"></i><a href="ui-buttons.html">Telepon Mania</a></li>
-                                    <li><i class="fa fa-puzzle-piece"></i><a href="ui-buttons.html">Upgrade Speed</a></li>
-                                </ul>
+                            <li><i class="fa fa-id-badge"></i><a href="#">Best OTT</a></li>
+                            <li><i class="fa fa-id-badge"></i><a href="#">Best Add On</a></li>
+                            <li class="sub-menu children dropdown">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="fa fa-puzzle-piece"></i>Minipack</a>
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="fa fa-puzzle-piece"></i>STB Tambahan</a>
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="fa fa-puzzle-piece"></i>Telepon Mania</a>
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="fa fa-puzzle-piece"></i>Upgrade Speed</a>
                             </li>
-                            <li><i class="fa fa-id-badge"></i><a href="ui-badges.html">Best OTT</a></li>
+                        </ul>
+                    </li>
+                    <li class="menu-item-has-children dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="menu-icon fa fa-laptop"></i>Realisasi</a>
+                        <ul class="sub-menu children dropdown-menu">
+                            <li><i class="fa fa-id-badge"></i><a href="#">Best OTT</a></li>
+                            <li><i class="fa fa-id-badge"></i><a href="#">Best Add On</a></li>
+                            <li class="sub-menu children dropdown">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="fa fa-puzzle-piece"></i>Minipack</a>
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="fa fa-puzzle-piece"></i>STB Tambahan</a>
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="fa fa-puzzle-piece"></i>Telepon Mania</a>
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="fa fa-puzzle-piece"></i>Upgrade Speed</a>
+                            </li>
                         </ul>
                     </li>
                     
