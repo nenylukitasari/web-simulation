@@ -11,6 +11,7 @@
 		<input type="text" name="blabla">
 		<button type="submtit"></button>
 	</form>
+
 	<div class="animated fadeIn">
         <div class="row">
 			<div class="col-md-12">
@@ -21,10 +22,16 @@
 	                <div class="card-body">
 	          			<table id="bootstrap-data-table-export" class="table table-striped table-bordered">
 	            			<thead>
-	            				<th>Id</th>
-	            				<th>Nama</th>
-	            				<th>Umur</th>
-	            				<th>Coba</th>
+	            				<th align="center" valign="middle">Id</th>
+	            				<th align="center" valign="middle">Witel</th>
+	            				<th align="center" valign="middle">Jumlah Aktivasi Catchplay</th>
+	            				<th align="center" valign="middle">Jumlah Aktivasi Iflix</th>
+	            				<th align="center" valign="middle">Jumlah Aktivasi HOOQ</th>
+	            				<th align="center" valign="middle">Jumlah Aktivasi Movin</th>
+	            				<th align="center" valign="middle">Jumlah OTT</th>
+	            				<th align="center" valign="middle">Jumlah Sales IndiHome DIY</th>
+	            				<th align="center" valign="middle">Persentase</th>
+	            				<th align="center" valign="middle">Treshold</th>
 	            			</thead>
 	            			<tbody>
 	            				<tr>
@@ -35,12 +42,6 @@
 	            						</tr>
 	            					@endforeach
 	            				@endif
-	            				  <tr>
-                        <td>Tiger Nixon</td>
-                        <td>System Architect</td>
-                        <td>Edinburgh</td>
-                        <td>$320,800</td>
-                      </tr>
 	            			</tbody>
 	            		</table>
 	            	</div>
