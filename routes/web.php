@@ -33,3 +33,4 @@ Route::get('/home', 'HomeController@index')->name('home');
 //Route::get('/coba/{id}','OttController@index');//di get url
 Route::get('/coba','OttController@index');
 Route::post('/input','OttController@input');
+Route::get('/form','OttController@form');
