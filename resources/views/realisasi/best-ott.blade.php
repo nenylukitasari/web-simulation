@@ -22,6 +22,9 @@
 	          			<table id="bootstrap-data-table-export" class="table table-striped table-bordered">
 	            			<thead>
 	            				<th>Id</th>
+	            				<th>Nama</th>
+	            				<th>Umur</th>
+	            				<th>Coba</th>
 	            			</thead>
 	            			<tbody>
 	            				<tr>
@@ -32,6 +35,12 @@
 	            						</tr>
 	            					@endforeach
 	            				@endif
+	            				  <tr>
+                        <td>Tiger Nixon</td>
+                        <td>System Architect</td>
+                        <td>Edinburgh</td>
+                        <td>$320,800</td>
+                      </tr>
 	            			</tbody>
 	            		</table>
 	            	</div>
@@ -41,7 +50,7 @@
 	</div>
 @endsection
 @section('additional-script')
-	<script src="{{asset('assets/js/lib/data-table/datatables.min.js')}}"></script>
+	
     <script src="{{asset('assets/js/lib/data-table/dataTables.bootstrap.min.js')}}"></script>
     <script src="{{asset('assets/js/lib/data-table/dataTables.buttons.min.js')}}"></script>
     <script src="{{asset('assets/js/lib/data-table/buttons.bootstrap.min.js')}}"></script>
