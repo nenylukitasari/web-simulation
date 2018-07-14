@@ -15,7 +15,8 @@ class OttController extends Controller
     	//$ott=ott::where('id',2)->get();
     	// $ott=ott::find(2);
     	// return $ott->created_at;
-    	// return $ott;
+    	//fr
+        //return $ott;
     	return view('realisasi.best-ott',compact('ott'));
     }
 

@@ -3,7 +3,7 @@
 	<link rel="stylesheet" href="{{asset('assets/css/lib/datatable/dataTables.bootstrap.min.css')}}">
 @endsection
 @section('title')
-	Best OTT
+	Best OTTx
 @endsection
 @section('content')
 
@@ -49,6 +49,7 @@
 	            						</tr>
 	            					@endforeach
 	            				@endif
+	            			</tr>
 	            			</tbody>
 	            		</table>
 	            	</div>
