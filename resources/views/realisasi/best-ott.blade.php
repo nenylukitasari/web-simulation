@@ -3,21 +3,19 @@
 	<link rel="stylesheet" href="{{asset('assets/css/lib/datatable/dataTables.bootstrap.min.css')}}">
 @endsection
 @section('title')
-	Best OTT
+	Best OTTx
 @endsection
 @section('content')
-	<form method="post" action="{{url('input')}}">{{-- input ndes --}}
-		{{csrf_field()}}
-		<input type="text" name="blabla">
-		<button type="submtit"></button>
-	</form>
 
 	<div class="animated fadeIn">
         <div class="row">
 			<div class="col-md-12">
 	            <div class="card">
 	                <div class="card-header">
-	                    <strong class="card-title">Data Table</strong>
+	                  <!-- <strong class="card-title">Data Table</strong>-->
+	                    <div class="col-lg-12">
+	                    <div class="form-actions form-group"><button type="submit" class="btn btn-success btn-sm">EDIT</button></div>
+	                </div>
 	                </div>
 	                <div class="card-body">
 	          			<table id="bootstrap-data-table-export" class="table table-striped table-bordered">
@@ -39,9 +37,19 @@
 	            					@foreach($ott as $x)
 	            						<tr>
 	            							<td>{{$x->id}}</td>
+                        					<td>Witel</td>
+                        					<td>{{$x->catchplay}}</td>
+                       		 				<td>{{$x->iflix}}</td>
+                       		 				<td>{{$x->movin}}</td>
+	            							<td>{{$x->ott}}</td>
+	            							<td>{{$x->salesIndihome}}</td>
+	            							<td>{{$x->persentase}}</td>
+	            							<td>{{$x->treshold}}</td>
+	            							
 	            						</tr>
 	            					@endforeach
 	            				@endif
+	            			</tr>
 	            			</tbody>
 	            		</table>
 	            	</div>
@@ -51,6 +59,7 @@
 	</div>
 @endsection
 @section('additional-script')
+	
 	
     <script src="{{asset('assets/js/lib/data-table/dataTables.bootstrap.min.js')}}"></script>
     <script src="{{asset('assets/js/lib/data-table/dataTables.buttons.min.js')}}"></script>

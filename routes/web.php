@@ -20,16 +20,13 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Auth::routes();
-Route::get('/login', function () {
-    return redirect('/#login');
-});
-
-Route::get('/logout', 'Auth\LoginController@logout');
-
-Route::get('/home', 'HomeController@index')->name('home');
-
+Route::get('/login', 'MainController@index');
+Route::post('/login/checklogin', 'MainController@checklogin');
+Route::get('admin', 'MainController@successlogin');
+Route::get('admin/logout', 'MainController@logout');
 
 //Route::get('/coba/{id}','OttController@index');//di get url
 Route::get('/coba','OttController@index');
 Route::post('/input','OttController@input');
+Route::get('/form','OttController@form');
+

@@ -15,15 +15,27 @@ class OttController extends Controller
     	//$ott=ott::where('id',2)->get();
     	// $ott=ott::find(2);
     	// return $ott->created_at;
-    	// return $ott;
+    	//fr
+        //return $ott;
     	return view('realisasi.best-ott',compact('ott'));
     }
 
     public function input(Request $r)
     {
     	$ott=new ott();
-    	//$ott->nama=$r->blabla;
+    	$ott->catchplay=$r->blabla;
     	$ott->save();
     	return redirect('/coba');
+    }
+
+     public function form()
+    {
+    	//return $id;
+    	$ott=ott::get();
+    	//$ott=ott::where('id',2)->get();
+    	// $ott=ott::find(2);
+    	// return $ott->created_at;
+    	// return $ott;
+    	return view('realisasi.form');
     }
 }
