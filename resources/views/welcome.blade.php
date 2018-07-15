@@ -1,22 +1,16 @@
 @extends('layouts.master')
 
-@section('additional-script')
- <script>
-        ( function ( $ ) {
-            "use strict";
-
-            jQuery( '#vmap' ).vectorMap( {
-                map: 'world_en',
-                backgroundColor: null,
-                color: '#ffffff',
-                hoverOpacity: 0.7,
-                selectedColor: '#1de9b6',
-                enableZoom: true,
-                showTooltip: true,
-                values: sample_data,
-                scaleColors: [ '#1de9b6', '#03a9f5' ],
-                normalizeFunction: 'polynomial'
-            } );
-        } )( jQuery );
-    </script>
+@section('title')
+    Dashboard
 @endsection
+
+@section('content')
+            <div class="col-xl-12">
+                <div class="card" >
+                    <div class="card-header">
+                        <h8>©Customer Care<b>Telkom Regional 5</b></h8>
+                    </div>
+                </div>
+            </div>
+@endsection
+

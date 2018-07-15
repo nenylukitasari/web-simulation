@@ -1,12 +1,7 @@
 @extends('layouts.master')
-
 @section('title')
     Best OTT
 @endsection
-@section('right_title')
-    Realisasi / Best OTT
-@endsection
-
 @section('content')
 
 <div class="content mt-3">
@@ -91,4 +86,22 @@
        </div>  
      </div>
    </div>
+@endsection
+
+@section('additional-script')
+    <script src="assets/js/vendor/jquery-2.1.4.min.js"></script>
+    <script src="assets/js/popper.min.js"></script>
+    <script src="assets/js/plugins.js"></script>
+    <script src="assets/js/main.js"></script>
+    <script src="assets/js/lib/chosen/chosen.jquery.min.js"></script>
+
+    <script>
+        jQuery(document).ready(function() {
+            jQuery(".standardSelect").chosen({
+                disable_search_threshold: 10,
+                no_results_text: "Oops, nothing found!",
+                width: "100%"
+            });
+        });
+    </script>
 @endsection

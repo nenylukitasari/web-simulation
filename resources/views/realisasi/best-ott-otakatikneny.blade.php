@@ -14,13 +14,14 @@
         <div class="row">
 			<div class="col-md-12">
 	            <div class="card">
-	                <div class="card-header">
-	                  <!-- <strong class="card-title">Data Table</strong>-->
+	            	 @if(Auth::check())
+                     <div class="card-header">
+	                 <!-- <strong class="card-title">Data Table</strong>-->
 	                    <div class="col-lg-12">
 	                    <div class="form-actions form-group"><button type="submit" class="btn btn-success btn-sm">EDIT</button></div>
 	                </div>
 	                </div>
-	                <div class="card-body">
+                            <div class="card-body">
 	          			<table id="bootstrap-data-table-export" class="table table-striped table-bordered">
 	            			<thead>
 	            				<th align="center" valign="middle">Id</th>
@@ -56,7 +57,45 @@
 	            			</tbody>
 	            		</table>
 	            	</div>
-	            </div>
+                            @else
+                             <div class="card-body">
+	          			<table id="bootstrap-data-table-export" class="table table-striped table-bordered">
+	            			<thead>
+	            				<th align="center" valign="middle">Id</th>
+	            				<th align="center" valign="middle">Witel</th>
+	            				<th align="center" valign="middle">Jumlah Aktivasi Catchplay</th>
+	            				<th align="center" valign="middle">Jumlah Aktivasi Iflix</th>
+	            				<th align="center" valign="middle">Jumlah Aktivasi HOOQ</th>
+	            				<th align="center" valign="middle">Jumlah Aktivasi Movin</th>
+	            				<th align="center" valign="middle">Jumlah OTT</th>
+	            				<th align="center" valign="middle">Jumlah Sales IndiHome DIY</th>
+	            				<th align="center" valign="middle">Persentase</th>
+	            				<th align="center" valign="middle">Treshold</th>
+	            			</thead>
+	            			<tbody>
+	            				<tr>
+	            				@if($ott!=null)
+	            					@foreach($ott as $x)
+	            						<tr>
+	            							<td>{{$x->id}}</td>
+                        					<td>Witel</td>
+                        					<td>{{$x->catchplay}}</td>
+                       		 				<td>{{$x->iflix}}</td>
+                       		 				<td>{{$x->movin}}</td>
+	            							<td>{{$x->ott}}</td>
+	            							<td>{{$x->salesIndihome}}</td>
+	            							<td>{{$x->persentase}}</td>
+	            							<td>{{$x->treshold}}</td>
+	            							
+	            						</tr>
+	            					@endforeach
+	            				@endif
+	            			</tr>
+	            			</tbody>
+	            		</table>
+	            	</div>
+                    @endif
+	           </div>
 	        </div>
 	    </div>
 	</div>
