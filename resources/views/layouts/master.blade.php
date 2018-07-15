@@ -22,11 +22,13 @@
 
     <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,600,700,800' rel='stylesheet' type='text/css'>
     @yield('add-css')
+
     <!-- <script type="text/javascript" src="https://cdn.jsdelivr.net/html5shiv/3.7.3/html5shiv.min.js"></script> -->
 
 </head>
 <body>
     <!-- Left Panel -->
+
     <aside id="left-panel" class="left-panel">
         <nav class="navbar navbar-expand-sm navbar-default">
 
@@ -34,12 +36,15 @@
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#main-menu" aria-controls="main-menu" aria-expanded="false" aria-label="Toggle navigation">
                     <i class="fa fa-bars"></i>
                 </button>
-                <a class="navbar-brand" href="./"><img src="images/logo.png" alt="Logo"></a>
+                <a class="navbar-brand" href="./"><img src="{{ URL('images/logo.png') }}" alt="Logo"></a>
                 <a class="navbar-brand hidden" href="./"><img src="images/logo2.png" alt="Logo"></a>
             </div>
 
             <div id="main-menu" class="main-menu collapse navbar-collapse">
                 <ul class="nav navbar-nav">
+                    <li>
+                        <a href="/"> <i class="menu-icon fa fa-dashboard"></i>Home </a>
+                    </li>
                     <li class="menu-item-has-children dropdown">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="menu-icon fa fa-laptop"></i>Simulasi</a>
                         <ul class="sub-menu children dropdown-menu">
@@ -74,33 +79,37 @@
 
     <!-- Left Panel -->
 
-    <div id="right-panel" class="right-panel">
+     <div id="right-panel" class="right-panel">
         <header id="header" class="header">
+
             <div class="header-menu">
                 <div class="col-sm-7">
                     <a id="menuToggle" class="menutoggle pull-left"><i class="fa fa fa-tasks"></i></a>
                     <div class="header-left">
                     </div>
                 </div>
-
-                <div class="col-sm-5">
+               <div class="col-sm-5">
                     <div class="user-area dropdown float-right">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            <img class="user-avatar rounded-circle" src="images/admin.jpg" alt="User Avatar">
+                            <img class="user-avatar rounded-circle" src="{{ URL('images/user.jpg') }}" alt="User Avatar">
                         </a>
 
                         <div class="user-menu dropdown-menu">
-                                <a class="nav-link" href="#"><i class="fa fa- user"></i>My Profile</a>
-                                {{-- <a class="nav-link" href="#"><i class="fa fa -cog"></i>Settings</a>--}}
-                                <a class="nav-link" href="#"><i class="fa fa-power -off"></i>Logout</a>
+                            @if(Auth::check())
+                            <a class="nav-link">   Welcome, {{ Auth::user()->name }}</a>
+                            <a class="menu-icon fa fa-sign-out" href="{{ url('/admin/logout') }}">    Logout</a>
+                            @else
+                            <a class="menu-icon fa fa-sign-in" href="{{ URL('/login') }}"> Login</a><br>
+                            @endif
                         </div>
                     </div>
-
                 </div>
             </div>
 
-        </header>
-        <div class="breadcrumbs">
+        </header><!-- /header -->
+        <!-- Header-->
+
+     <div class="breadcrumbs">
             <div class="col-sm-4">
                 <div class="page-header float-left">
                     <div class="page-title">
@@ -116,22 +125,33 @@
                         </ol>
                     </div>
                 </div>
-            </div> --}}
+            </div> --}}  
         </div>
+
         <div class="content mt-3">
-            {{-- <div class="col-sm-12">
+
+            <div class="col-sm-12">
                 <div class="alert  alert-success alert-dismissible fade show" role="alert">
                   <span class="badge badge-pill badge-success">Success</span> You successfully read this important alert message.
                     <button type="button" class="close" data-dismiss="alert" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
                     </button>
                 </div>
-            </div> Message--}}
+            </div>
+
+            <div class="col-xl-12">
+                <div class="card" >
+                    <div class="card-header">
+                        <h8>©Customer Care<b>Telkom Regional 5</b></h8>
+                    </div>
+                </div>
+                <!-- /# card -->
+            </div>
             @yield('content')
-        </div>
-    </div>
+        </div> <!-- .content -->
+    </div><!-- /#right-panel -->
 
-
+    <!-- Right Panel -->
 
     <script src="{{ URL('assets/js/vendor/jquery-2.1.4.min.js') }}"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js"></script>
@@ -139,9 +159,9 @@
     <script src="{{ URL('assets/js/main.js') }}"></script>
 
 
-    {{-- <script src="{{ URL('assets/js/lib/chart-js/Chart.bundle.js') }}"></script> --}}
-    {{-- <script src="{{ URL('assets/js/dashboard.js') }}"></script> --}}
-    {{-- <script src="{{ URL('assets/js/widgets.js') }}"></script> --}}
+    <script src="{{ URL('assets/js/lib/chart-js/Chart.bundle.js') }}"></script>
+    <script src="{{ URL('assets/js/dashboard.js') }}"></script>
+    <script src="{{ URL('assets/js/widgets.js') }}"></script>
     <script src="{{ URL('assets/js/lib/vector-map/jquery.vmap.js') }}"></script>
     <script src="{{ URL('assets/js/lib/vector-map/jquery.vmap.min.js') }}"></script>
     <script src="{{ URL('assets/js/lib/vector-map/jquery.vmap.sampledata.js') }}"></script>
