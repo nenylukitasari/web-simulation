@@ -47,7 +47,6 @@
                        		 				<td>{{$x->iflix}}</td>
                        		 				<td>{{$x->hooq}}</td>
                        		 				<td>{{$x->movin}}</td>
-                       		 				<td>{{$x->jml_ott}}</td>
 	            							<td>{{$x->salesDIY}}</td>
 	            							<td>{{$x->treshold}}</td>
 	            						</tr>
