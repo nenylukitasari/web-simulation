@@ -24,14 +24,15 @@
 	          			<table id="bootstrap-data-table-export" class="table table-striped table-bordered">
 	            			<thead>
 	            				<th align="center" valign="middle">Id</th>
+	            				<th align="center" valign="middle">Waktu</th>
 	            				<th align="center" valign="middle">Witel</th>
 	            				<th align="center" valign="middle">Jumlah Aktivasi Catchplay</th>
 	            				<th align="center" valign="middle">Jumlah Aktivasi Iflix</th>
 	            				<th align="center" valign="middle">Jumlah Aktivasi HOOQ</th>
 	            				<th align="center" valign="middle">Jumlah Aktivasi Movin</th>
-	            				<th align="center" valign="middle">Jumlah OTT</th>
+	            				<!--<th align="center" valign="middle">Jumlah OTT</th>-->
 	            				<th align="center" valign="middle">Jumlah Sales IndiHome DIY</th>
-	            				<th align="center" valign="middle">Persentase</th>
+	            				<!--<th align="center" valign="middle">Persentase</th>-->
 	            				<th align="center" valign="middle">Treshold</th>
 	            			</thead>
 	            			<tbody>
@@ -40,15 +41,15 @@
 	            					@foreach($ott as $x)
 	            						<tr>
 	            							<td>{{$x->id}}</td>
-                        					<td>Witel</td>
+	            							<td>{{$x->tanggal}}</td>
+                        					<td>{{$x->witel}}</td>
                         					<td>{{$x->catchplay}}</td>
                        		 				<td>{{$x->iflix}}</td>
+                       		 				<td>{{$x->hooq}}</td>
                        		 				<td>{{$x->movin}}</td>
-	            							<td>{{$x->ott}}</td>
-	            							<td>{{$x->salesIndihome}}</td>
-	            							<td>{{$x->persentase}}</td>
+                       		 				<td>{{$x->jml_ott}}</td>
+	            							<td>{{$x->salesDIY}}</td>
 	            							<td>{{$x->treshold}}</td>
-	            							
 	            						</tr>
 	            					@endforeach
 	            				@endif

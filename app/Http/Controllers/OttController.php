@@ -23,7 +23,15 @@ class OttController extends Controller
     public function input(Request $r)
     {
     	$ott=new ott();
-    	$ott->catchplay=$r->blabla;
+        $ott->tanggal=$r->tanggal;
+    	$ott->witel=$r->witel;
+        $ott->catchplay=$r->catchplay;
+        $ott->iflix=$r->iflix;
+        $ott->hooq=$r->hooq;
+        $ott->movin=$r->movin;
+       // $ott->jml_ott=$r->SUM($r->catchplay+$r->iflix+$r->hooq+$r->movin);
+        $ott->salesDIY=$r->salesDIY;
+        $ott->treshold=$r->treshold;
     	$ott->save();
     	return redirect('/coba');
     }
