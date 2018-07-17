@@ -10,12 +10,12 @@
 | contains the "web" middleware group. Now create something great!
 |
 */
-/*
+
 Route::get('/', function () {
-    return view('welcome');
+	  if(Auth::check())
+            return redirect('/admin');
+  return view('welcome');
 }); 		
-//->middleware('authenticated-home');
-*/
 
 Route::get('/login', 'MainController@index');
 Route::post('/login/checklogin', 'MainController@checklogin');
@@ -31,9 +31,6 @@ Route::group(['middleware' => 'authenticated'], function() {
 	Route::get('/admin', 'MainController@successlogin');
 	Route::get('/admin/realisasi/best-ott/form','OttController@form');
 });
-
-Route::get('/', 'HomeController@index')->middleware('authenticated-home');
-	
 
 /*
 //Simulasi
