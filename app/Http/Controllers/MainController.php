@@ -35,7 +35,7 @@ class MainController extends Controller
 	     }
 
     }
-
+    
     function successlogin()
     {
      	return view('welcome');
