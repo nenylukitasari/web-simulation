@@ -15,8 +15,8 @@
 	            <div class="header-left"><b>Search</b>
 	                <div class="form-inline">
 	                    <form class="search-form" method="post" action="{{url('search')}}">{{-- input ndes --}}
-	                        {{csrf_field()}}
-	                        <input class="form-control mr-sm-2" type="date" name="cari_tanggal" required>
+	                                    {{csrf_field()}}
+	                        <input class="form-control mr-sm-2" type="date" name="cari_tanggal">
 	                        <button class="btn btn-success" type="submit" value="submit" nama="Pencarian"><i class="fa fa-search"></i></button>
 	                    </form>
 	                </div>
@@ -41,7 +41,7 @@
 	            				<th align="center" valign="middle">Jumlah Aktivasi HOOQ</th>
 	            				<th align="center" valign="middle">Jumlah Aktivasi Movin</th>
 	            				<th align="center" valign="middle">Jumlah OTT</th>
-	            				<th align="center" valign="middle">Persentase</th>
+	            				<!--<th align="center" valign="middle">Persentase</th>-->
 	            				<th align="center" valign="middle">Jumlah Sales IndiHome DIY</th>	
 	            				<th align="center" valign="middle">Treshold</th>
 	            			</thead>
@@ -57,7 +57,6 @@
                        		 				<td>{{$x->hooq}}</td>
                        		 				<td>{{$x->movin}}</td>
                        		 				<td>{{$x->catchplay+$x->iflix+$x->hooq+$x->movin}}</td>
-                       		 				<td>{{number_format(($x->catchplay+$x->iflix+$x->hooq+$x->movin)/$x->salesDIY,2)}} % </td>
 	            							<td>{{$x->salesDIY}}</td>
 	            							<td>{{$x->treshold}} % </td>
 	            						</tr>

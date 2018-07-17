@@ -29,7 +29,7 @@ class OttController extends Controller
         $ott->iflix=$r->iflix;
         $ott->hooq=$r->hooq;
         $ott->movin=$r->movin;
-       // $ott->jml_ott=$r->SUM($r->catchplay+$r->iflix+$r->hooq+$r->movin);
+        $ott->jml_ott=$r->catchplay+$r->iflix+$r->hooq+$r->movin;
         $ott->salesDIY=$r->salesDIY;
         $ott->treshold=$r->treshold;
     	$ott->save();
@@ -38,12 +38,28 @@ class OttController extends Controller
 
      public function form()
     {
-    	//return $id;
     	$ott=ott::get();
-    	//$ott=ott::where('id',2)->get();
-    	// $ott=ott::find(2);
-    	// return $ott->created_at;
-    	// return $ott;
     	return view('realisasi.form');
+    }
+
+    public function search()
+    { 
+        $ott=ott::all();
+        return view('realisasi.best-ott',compact('ott'));
+    }
+
+    public function postsearch(Request $r)
+    {
+        $cari_tanggal = $r->cari_tanggal;
+        //dd($cari_tanggal);
+        if($cari_tanggal!="")
+        {
+            $ott = ott::where('tanggal', $cari_tanggal)->get();
+            return view('realisasi.best-ott',compact('ott'));
+        }
+        else
+        {
+            abort(404);
+        }
     }
 }

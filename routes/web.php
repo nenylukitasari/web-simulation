@@ -29,4 +29,20 @@ Route::get('admin/logout', 'MainController@logout');
 Route::get('/coba','OttController@index');
 Route::post('/input','OttController@input');
 Route::get('/form','OttController@form');
+Route::get('/best-ott','OttController@index');
+
+Route::post('/search','OttController@postsearch');
+
+/*Route::post('/search',function()
+{
+	$cari_tanggal = Input::get('cari_tanggal');
+	dd($cari_tanggal);
+	//if($cari_tanggal!="")
+	//{
+	//	$ott = ott::where('tanggal', 'LIKE', '%'.$cari_tanggal.'%');
+	//}
+	 //return view('realisasi.best-ott',compact('ott'));
+});*/
+
+
 
