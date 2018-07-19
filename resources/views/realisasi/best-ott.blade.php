@@ -14,7 +14,7 @@
 			<div class="col-sm-7">
 	            <div class="header-left"><b>Search</b>
 	                <div class="form-inline">
-	                    <form class="search-form" method="post" action="{{url('search')}}">{{-- input ndes --}}
+	                    <form class="search-form" method="post" action="{{url('search')}}">
 	                        {{csrf_field()}}
 	                        <input class="form-control mr-sm-2" type="date" name="cari_tanggal" required>
 	                        <button class="btn btn-success" type="submit" value="submit" nama="Pencarian"><i class="fa fa-search"></i></button>
@@ -33,7 +33,7 @@
 	                <div class="card-body">
 	          			<table id="bootstrap-data-table-export" class="table table-striped table-bordered">
 	            			<thead>
-	            				<th align="center" valign="middle">Id</th>
+	            				<!--<th align="center" valign="middle">Id</th>-->
 	            				<th align="center" valign="middle">Waktu</th>
 	            				<th align="center" valign="middle">Witel</th>
 	            				<th align="center" valign="middle">Jumlah Aktivasi Catchplay</th>
@@ -49,7 +49,7 @@
 	            				@if($ott!=null)
 	            					@foreach($ott as $x)
 	            						<tr>
-	            							<td>{{$x->id}}</td>
+	            							<!--<td>{{$x->id}}</td>-->
 	            							<td>{{$x->tanggal}}</td>
                         					<td>{{$x->witel}}</td>
                         					<td>{{$x->catchplay}}</td>
