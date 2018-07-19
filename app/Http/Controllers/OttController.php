@@ -62,4 +62,112 @@ class OttController extends Controller
             abort(404);
         }
     }
+
+    /*public function blnsearch(Request $r)
+    {
+        $cari_bulan = $r->cari_bulan;
+        return $r;
+        /*if ($cari_bulan!="")
+        {
+                $bln=Date("m");
+        $thn=Date("Y");
+        $witel=ott::select('witel')->where('tanggal','like',$thn."-".$bln.'%')->groupby('witel')->get();
+
+        $blnn=Date("n");
+        $list30=[4,6,9,11];
+        $list31=[1,3,5,7,8,10,12];
+
+        if(in_array($blnn, $list30))
+        {
+            $jmlhari=30;
+        }
+        elseif(in_array($blnn, $list31))
+        {
+            $jmlhari=31;
+        }
+        else
+        {
+            if($thn%4==0)
+            {
+                $jmlhari=29;
+            }
+            else
+            {
+                $jmlhari=28;
+            }
+        }
+        return view('realisasi.jmlottpersentase',compact('bln','witel','jmlhari','thn'));
+        }
+      else   
+         {
+            abort(404);
+        }*/
+    
+    }
+
+    public function getcatchplay()
+    {
+        $bln=Date("m");
+        $thn=Date("Y");
+        $witel=ott::select('witel')->where('tanggal','like',$thn."-".$bln.'%')->groupby('witel')->get();
+
+        $blnn=Date("n");
+        $list30=[4,6,9,11];
+        $list31=[1,3,5,7,8,10,12];
+
+        if(in_array($blnn, $list30))
+        {
+            $jmlhari=30;
+        }
+        elseif(in_array($blnn, $list31))
+        {
+            $jmlhari=31;
+        }
+        else
+        {
+            if($thn%4==0)
+            {
+                $jmlhari=29;
+            }
+            else
+            {
+                $jmlhari=28;
+            }
+        }
+
+        return view('realisasi.catchplay',compact('bln','witel','jmlhari','thn'));
+    }
+
+    public function jmlottpersentase()
+    {
+        $bln=Date("m");
+        $thn=Date("Y");
+        $witel=ott::select('witel')->where('tanggal','like',$thn."-".$bln.'%')->groupby('witel')->get();
+
+        $blnn=Date("n");
+        $list30=[4,6,9,11];
+        $list31=[1,3,5,7,8,10,12];
+
+        if(in_array($blnn, $list30))
+        {
+            $jmlhari=30;
+        }
+        elseif(in_array($blnn, $list31))
+        {
+            $jmlhari=31;
+        }
+        else
+        {
+            if($thn%4==0)
+            {
+                $jmlhari=29;
+            }
+            else
+            {
+                $jmlhari=28;
+            }
+        }
+
+        return view('realisasi.jmlottpersentase',compact('bln','witel','jmlhari','thn'));
+    }
 }

@@ -11,57 +11,61 @@
 @section('content')
 	<div class="animated fadeIn">
 		<div class="row">
-			<div class="col-sm-7">
+			<div class="col-sm-11">
 	            <div class="header-left"><b>Search</b>
 	                <div class="form-inline">
 	                    <form class="search-form" method="post" action="{{url('search')}}">{{-- input ndes --}}
-	                                    {{csrf_field()}}
-	                        <input class="form-control mr-sm-2" type="date" name="cari_tanggal">
+	                        {{csrf_field()}}
+	                        <input class="form-control mr-sm-2" type="date" name="cari_tanggal" required>
 	                        <button class="btn btn-success" type="submit" value="submit" nama="Pencarian"><i class="fa fa-search"></i></button>
 	                    </form>
 	                </div>
 	            </div>
 	        </div>
+	           <div class="col-lg-14">
+	                    <div class="form-actions form-group"><button type="submit" class="btn btn-success btn-sm">EDIT</button></div>
+	                </div>  
 		</div>
 		<br>
         <div class="row">
 			<div class="col-md-12">
 	            <div class="card">
-	                <div class="card-header">
-	                    <strong class="card-title">Data Table</strong>
-	                </div>
+	               <!-- <div class="card-header">
+	                   <strong class="card-title">Data Table</strong>
+	                </div>-->
 	                <div class="card-body">
 	          			<table id="bootstrap-data-table-export" class="table table-striped table-bordered">
 	            			<thead>
-	            				<th align="center" valign="middle">Id</th>
-	            				<th align="center" valign="middle">Waktu</th>
 	            				<th align="center" valign="middle">Witel</th>
-	            				<th align="center" valign="middle">Jumlah Aktivasi Catchplay</th>
-	            				<th align="center" valign="middle">Jumlah Aktivasi Iflix</th>
-	            				<th align="center" valign="middle">Jumlah Aktivasi HOOQ</th>
-	            				<th align="center" valign="middle">Jumlah Aktivasi Movin</th>
-	            				<th align="center" valign="middle">Jumlah OTT</th>
-	            				<!--<th align="center" valign="middle">Persentase</th>-->
-	            				<th align="center" valign="middle">Jumlah Sales IndiHome DIY</th>	
-	            				<th align="center" valign="middle">Treshold</th>
+	            				@for($x=1;$x<=$jmlhari;$x++)
+	            					<th align="center" valign="middle">{{$x}}</th>
+	            				@endfor
 	            			</thead>
 	            			<tbody>
-	            				@if($ott!=null)
-	            					@foreach($ott as $x)
-	            						<tr>
-	            							<td>{{$x->id}}</td>
-	            							<td>{{$x->tanggal}}</td>
-                        					<td>{{$x->witel}}</td>
-                        					<td>{{$x->catchplay}}</td>
-                       		 				<td>{{$x->iflix}}</td>
-                       		 				<td>{{$x->hooq}}</td>
-                       		 				<td>{{$x->movin}}</td>
-                       		 				<td>{{$x->catchplay+$x->iflix+$x->hooq+$x->movin}}</td>
-	            							<td>{{$x->salesDIY}}</td>
-	            							<td>{{$x->treshold}} % </td>
-	            						</tr>
-	            					@endforeach
-	            				@endif
+	            				@foreach($witel as $wit)
+	            					<tr>
+	            						<td>{{$wit->witel}}</td>
+	            						
+	            						@for($x=1;$x<=$jmlhari;$x++)
+	            							<?php
+	            								if($x<10)
+	            								{
+	            									$tgl="0".$x;
+	            								}
+	            								else
+	            								{
+	            									$tgl=$x;
+	            								}
+	            								$jml=App\ott::select(DB::raw('SUM(catchplay) as total_cp'),DB::raw('SUM(iflix) as total_iflix'),DB::raw('SUM(hooq) as total_hooq'),DB::raw('SUM(movin) as total_movin'),DB::raw('SUM(salesDIY) as total_diy'))->where('witel',$wit->witel)->where('tanggal',$thn."-".$bln."-".$tgl)->groupby('tanggal')->first();
+	            							?>
+	            							@if($jml == null)
+	            								<td>0</td>
+	            							@else
+												<td>{{number_format(($jml->total_cp+$jml->total_iflix+$jml->total_hooq+$jml->total_movin)/$jml->total_diy,2)}}</td>
+											@endif
+			            				@endfor
+	            					</tr>
+	            				@endforeach
 	            			</tbody>
 	            		</table>
 	            	</div>
