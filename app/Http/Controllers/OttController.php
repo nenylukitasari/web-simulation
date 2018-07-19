@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\ott;
+
 class OttController extends Controller
 {
     //
@@ -17,7 +18,19 @@ class OttController extends Controller
     	// return $ott->created_at;
     	//fr
         //return $ott;
-    	return view('realisasi.best-ott',compact('ott'));
+    	return view('simulasi.best-ott',compact('ott'));
+    }
+    
+    public function index_real()
+    {
+        //return $id;
+        $ott=ott::get();
+        //$ott=ott::where('id',2)->get();
+        // $ott=ott::find(2);
+        // return $ott->created_at;
+        //fr
+        //return $ott;
+        return view('realisasi.best-ott',compact('ott'));
     }
 
     public function input(Request $r)

@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>Sufee Admin - HTML5 Admin Template</title>
+    <title>@yield('title')</title>
     <meta name="description" content="Sufee Admin - HTML5 Admin Template">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
@@ -34,8 +34,9 @@
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#main-menu" aria-controls="main-menu" aria-expanded="false" aria-label="Toggle navigation">
                     <i class="fa fa-bars"></i>
                 </button>
-                <a class="navbar-brand" href="./"><img src="{{ URL('images/logo.png') }}" alt="Logo"></a>
-                <a class="navbar-brand hidden" href="./"><img src="{{ URL('images/logo2.png') }}" alt="Logo"></a>
+                <a class="navbar-brand" href="/"><img src="{{ URL('images/logo.png') }}" alt="Logo"></a>
+                <a class="navbar-brand hidden" href="/"><img src="{{ URL('images/logo2.png') }}" alt="Logo">
+                </a>
             </div>
 
             <div id="main-menu" class="main-menu collapse navbar-collapse">
@@ -46,26 +47,94 @@
                     <li class="menu-item-has-children dropdown">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="menu-icon fa fa-laptop"></i>Simulasi</a>
                         <ul class="sub-menu children dropdown-menu">
-                            <li><i class="fa fa-id-badge"></i><a href="#">Best OTT</a></li>
-                            <li><i class="fa fa-id-badge"></i><a href="#">Best Add On</a></li>
+                            <li><i class="fa fa-id-badge"></i><a href="">Best OTT</a></li>
                             <li class="sub-menu children dropdown">
-                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="fa fa-puzzle-piece"></i>Minipack</a>
-                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="fa fa-puzzle-piece"></i>STB Tambahan</a>
-                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="fa fa-puzzle-piece"></i>Telepon Mania</a>
-                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="fa fa-puzzle-piece"></i>Upgrade Speed</a>
+
+                                @if(Auth::check())
+                                <a href="{{ URL('/admin/simulasi/best-ott/catchplay') }}" aria-haspopup="true" aria-expanded="false"> <i class="fa fa-puzzle-piece"></i>Catchplay</a>
+                                <a href="{{ URL('/admin/simulasi/best-ott/iflix') }}" aria-haspopup="true" aria-expanded="false"> <i class="fa fa-puzzle-piece"></i>Iflix</a>
+                                <a href="{{ URL('/admin/simulasi/best-ott/hooq') }}" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="fa fa-puzzle-piece"></i>HOOQ</a>
+                                <a href="{{ URL('/admin/simulasi/best-ott/movin') }}" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="fa fa-puzzle-piece"></i>Movin</a>
+                                @else
+                                <a href="{{ URL('/simulasi/best-ott/catchplay') }}" aria-haspopup="true" aria-expanded="false"> <i class="fa fa-puzzle-piece"></i>Catchplay</a>
+                                <a href="{{ URL('/simulasi/best-ott/iflix') }}" aria-haspopup="true" aria-expanded="false"> <i class="fa fa-puzzle-piece"></i>Iflix</a>
+                                <a href="{{ URL('/simulasi/best-ott/hooq') }}" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="fa fa-puzzle-piece"></i>HOOQ</a>
+                                <a href="{{ URL('/simulasi/best-ott/movin') }}" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="fa fa-puzzle-piece"></i>Movin</a>
+                                @endif
+                            </li>
+                            
+                            <li><i class="fa fa-id-badge"></i><a href="">Best Add On</a></li>
+                            <li class="sub-menu children dropdown">
+
+                                @if(Auth::check())
+                                <a href="{{ URL('/admin/simulasi/best-addon/minipack') }}" aria-haspopup="true" aria-expanded="false"> <i class="fa fa-puzzle-piece"></i>Minipack</a>
+                                <a href="{{ URL('/admin/simulasi/best-addon/STBtambahan') }}" aria-haspopup="true" aria-expanded="false"> <i class="fa fa-puzzle-piece"></i>STB Tambahan</a>
+                                <a href="{{ URL('/admin/simulasi/best-addon/teleponmania') }}" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="fa fa-puzzle-piece"></i>Telepon Mania</a>
+                                <a href="{{ URL('/admin/simulasi/best-addon/upgradespeed') }}" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="fa fa-puzzle-piece"></i>Upgrade Speed</a>
+                                @else
+                                <a href="{{ URL('/simulasi/best-addon/minipack') }}" aria-haspopup="true" aria-expanded="false"> <i class="fa fa-puzzle-piece"></i>Minipack</a>
+                                <a href="{{ URL('/simulasi/best-addon/STBtambahan') }}" aria-haspopup="true" aria-expanded="false"> <i class="fa fa-puzzle-piece"></i>STB Tambahan</a>
+                                <a href="{{ URL('/simulasi/best-addon/teleponmania') }}" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="fa fa-puzzle-piece"></i>Telepon Mania</a>
+                                <a href="{{ URL('/simulasi/best-addon/upgradespeed') }}" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="fa fa-puzzle-piece"></i>Upgrade Speed</a>
+                                @endif
                             </li>
                         </ul>
                     </li>
                     <li class="menu-item-has-children dropdown">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="menu-icon fa fa-laptop"></i>Realisasi</a>
-                        <ul class="sub-menu children dropdown-menu">
-                            <li><i class="fa fa-id-badge"></i><a href="#">Best OTT</a></li>
-                            <li><i class="fa fa-id-badge"></i><a href="#">Best Add On</a></li>
+                        <ul class="sub-menu children dropdown-menu">    
+                            <li><i class="fa fa-id-badge"></i><a href="">Best OTT</a></li>
                             <li class="sub-menu children dropdown">
-                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="fa fa-puzzle-piece"></i>Minipack</a>
-                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="fa fa-puzzle-piece"></i>STB Tambahan</a>
-                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="fa fa-puzzle-piece"></i>Telepon Mania</a>
-                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="fa fa-puzzle-piece"></i>Upgrade Speed</a>
+
+                                @if(Auth::check())
+                                <a href="{{ URL('/admin/realisasi/best-ott/catchplay') }}" aria-haspopup="true" aria-expanded="false"> <i class="fa fa-puzzle-piece"></i>Catchplay</a>
+                                <a href="{{ URL('/admin/realisasi/best-ott/iflix') }}" aria-haspopup="true" aria-expanded="false"> <i class="fa fa-puzzle-piece"></i>Iflix</a>
+                                <a href="{{ URL('/admin/realisasi/best-ott/hooq') }}" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="fa fa-puzzle-piece"></i>HOOQ</a>
+                                <a href="{{ URL('/admin/realisasi/best-ott/movin') }}" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="fa fa-puzzle-piece"></i>Movin</a>
+                                @else
+                                <a href="{{ URL('/realisasi/best-ott/catchplay') }}" aria-haspopup="true" aria-expanded="false"> <i class="fa fa-puzzle-piece"></i>Catchplay</a>
+                                <a href="{{ URL('/realisasi/best-ott/iflix') }}" aria-haspopup="true" aria-expanded="false"> <i class="fa fa-puzzle-piece"></i>Iflix</a>
+                                <a href="{{ URL('/realisasi/best-ott/hooq') }}" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="fa fa-puzzle-piece"></i>HOOQ</a>
+                                <a href="{{ URL('/realisasi/best-ott/movin') }}" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="fa fa-puzzle-piece"></i>Movin</a>
+                                @endif
+                            </li>
+
+                            <li><i class="fa fa-id-badge"></i><a href="">Best Add On</a></li>
+                            <li class="sub-menu children dropdown">
+
+                                @if(Auth::check())
+                                <a href="{{ URL('/admin/realisasi/best-addon/minipack') }}" aria-haspopup="true" aria-expanded="false"> <i class="fa fa-puzzle-piece"></i>Minipack</a>
+                                <a href="{{ URL('/admin/realisasi/best-addon/STBtambahan') }}" aria-haspopup="true" aria-expanded="false"> <i class="fa fa-puzzle-piece"></i>STB Tambahan</a>
+                                <a href="{{ URL('/admin/realisasi/best-addon/teleponmania') }}" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="fa fa-puzzle-piece"></i>Telepon Mania</a>
+                                <a href="{{ URL('/admin/realisasi/best-addon/upgradespeed') }}" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="fa fa-puzzle-piece"></i>Upgrade Speed</a>
+                                @else
+                                <a href="{{ URL('/realisasi/best-addon/minipack') }}" aria-haspopup="true" aria-expanded="false"> <i class="fa fa-puzzle-piece"></i>Minipack</a>
+                                <a href="{{ URL('/realisasi/best-addon/STBtambahan') }}" aria-haspopup="true" aria-expanded="false"> <i class="fa fa-puzzle-piece"></i>STB Tambahan</a>
+                                <a href="{{ URL('/realisasi/best-addon/teleponmania') }}" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="fa fa-puzzle-piece"></i>Telepon Mania</a>
+                                <a href="{{ URL('/realisasi/best-addon/upgradespeed') }}" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="fa fa-puzzle-piece"></i>Upgrade Speed</a>
+                                @endif
+
+                            </li>
+                        </ul>
+                    </li>
+
+                    <li class="menu-item-has-children dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="menu-icon fa fa-laptop"></i>Achievement</a>
+                        <ul class="sub-menu children dropdown-menu">
+                            <li><i class="fa fa-id-badge"></i><a href="">Best Add On</a></li>
+                            <li class="sub-menu children dropdown">
+
+                                @if(Auth::check())
+                                <a href="{{ URL('/admin/achievement/best-addon/minipack') }}" aria-haspopup="true" aria-expanded="false"> <i class="fa fa-puzzle-piece"></i>Minipack</a>
+                                <a href="{{ URL('/admin/achievement/best-addon/STBtambahan') }}" aria-haspopup="true" aria-expanded="false"> <i class="fa fa-puzzle-piece"></i>STB Tambahan</a>
+                                <a href="{{ URL('/admin/achievement/best-addon/teleponmania') }}" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="fa fa-puzzle-piece"></i>Telepon Mania</a>
+                                <a href="{{ URL('/admin/achievement/best-addon/upgradespeed') }}" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="fa fa-puzzle-piece"></i>Upgrade Speed</a>
+                                @else
+                                <a href="{{ URL('/achievement/best-addon/minipack') }}" aria-haspopup="true" aria-expanded="false"> <i class="fa fa-puzzle-piece"></i>Minipack</a>
+                                <a href="{{ URL('/achievement/best-addon/STBtambahan') }}" aria-haspopup="true" aria-expanded="false"> <i class="fa fa-puzzle-piece"></i>STB Tambahan</a>
+                                <a href="{{ URL('/achievement/best-addon/teleponmania') }}" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="fa fa-puzzle-piece"></i>Telepon Mania</a>
+                                <a href="{{ URL('/achievement/best-addon/upgradespeed') }}" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="fa fa-puzzle-piece"></i>Upgrade Speed</a>
+                                @endif
                             </li>
                         </ul>
                     </li>
@@ -144,7 +213,8 @@
     <script src="{{ URL('assets/js/lib/vector-map/jquery.vmap.min.js') }}"></script>
     <script src="{{ URL('assets/js/lib/vector-map/jquery.vmap.sampledata.js') }}"></script>
     <script src="{{ URL('assets/js/lib/vector-map/country/jquery.vmap.world.js') }}"></script>
-    <script>
+    
+    <!--<script>
         ( function ( $ ) {
             "use strict";
 
@@ -161,7 +231,7 @@
                 normalizeFunction: 'polynomial'
             } );
         } )( jQuery );
-    </script>
+    </script>-->
     @yield('additional-script')
 </body>
 </html>
