@@ -3,6 +3,7 @@
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <link rel="icon" href="{{ URL('/images/logo2.png') }}" type="image/x-icon">
     <title>@yield('title')</title>
     <meta name="description" content="Sufee Admin - HTML5 Admin Template">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -45,9 +46,9 @@
                         <a href="/"> <i class="menu-icon fa fa-dashboard"></i>Home </a>
                     </li>
                     <li class="menu-item-has-children dropdown">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="menu-icon fa fa-laptop"></i>Simulasi</a>
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="menu-icon fa fa-desktop"></i>Simulasi</a>
                         <ul class="sub-menu children dropdown-menu">
-                            <li><i class="fa fa-id-badge"></i><a href="">Best OTT</a></li>
+                            <li><i class="fa fa-id-badge"></i><a href="#">Best OTT</a></li>
                             <li class="sub-menu children dropdown">
 
                                 @if(Auth::check())
@@ -63,7 +64,7 @@
                                 @endif
                             </li>
                             
-                            <li><i class="fa fa-id-badge"></i><a href="">Best Add On</a></li>
+                            <li><i class="fa fa-id-badge"></i><a href="#">Best Add On</a></li>
                             <li class="sub-menu children dropdown">
 
                                 @if(Auth::check())
@@ -81,9 +82,9 @@
                         </ul>
                     </li>
                     <li class="menu-item-has-children dropdown">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="menu-icon fa fa-laptop"></i>Realisasi</a>
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="menu-icon fa fa-bullhorn"></i>Realisasi</a>
                         <ul class="sub-menu children dropdown-menu">    
-                            <li><i class="fa fa-id-badge"></i><a href="">Best OTT</a></li>
+                            <li><i class="fa fa-id-badge"></i><a href="#">Best OTT</a></li>
                             <li class="sub-menu children dropdown">
 
                                 @if(Auth::check())
@@ -99,7 +100,7 @@
                                 @endif
                             </li>
 
-                            <li><i class="fa fa-id-badge"></i><a href="">Best Add On</a></li>
+                            <li><i class="fa fa-id-badge"></i><a href="#">Best Add On</a></li>
                             <li class="sub-menu children dropdown">
 
                                 @if(Auth::check())
@@ -119,9 +120,9 @@
                     </li>
 
                     <li class="menu-item-has-children dropdown">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="menu-icon fa fa-laptop"></i>Achievement</a>
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="menu-icon fa fa-trophy"></i>Achievement</a>
                         <ul class="sub-menu children dropdown-menu">
-                            <li><i class="fa fa-id-badge"></i><a href="">Best Add On</a></li>
+                            <li><i class="fa fa-id-badge"></i><a href="#">Best Add On</a></li>
                             <li class="sub-menu children dropdown">
 
                                 @if(Auth::check())

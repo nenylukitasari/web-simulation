@@ -17,8 +17,8 @@ Route::get('/', function () {
   return view('welcome');
 }); 
 
-	Route::get('/admin/realisasi/best-ott/form','OttController@form');
-	Route::post('/admin/best-ott/input','OttController@input');
+	//Route::get('/admin/realisasi/best-ott/form','OttController@form');
+	//Route::post('/input','OttController@input');
 
 Route::get('/login', 'MainController@index');
 Route::post('/login/checklogin', 'MainController@checklogin');
@@ -29,15 +29,15 @@ Route::group(['middleware' => 'authenticated'], function() {
 	Route::get('/admin', 'MainController@successlogin');
 
 	//best-ott
-	Route::get('/admin/realisasi/best-ott/catchplay','CatchController@index_real');
-	Route::get('/admin/realisasi/best-ott/iflix','IflixController@index_real');
-	Route::get('/admin/realisasi/best-ott/hooq','HooqController@index_real');
-	Route::get('/admin/realisasi/best-ott/movin','MovinController@index_real');
+	Route::get('/admin/realisasi/best-ott/catchplay','OttController@getcatchplay_real');
+	Route::get('/admin/realisasi/best-ott/iflix','Controller@');
+	Route::get('/admin/realisasi/best-ott/hooq','Controller@');
+	Route::get('/admin/realisasi/best-ott/movin','Controller@');
 
-	Route::get('/admin/simulasi/best-ott/catchplay','CatchController@index');
-	Route::get('/admin/simulasi/best-ott/iflix','IflixController@index');
-	Route::get('/admin/simulasi/best-ott/hooq','HooqController@index');
-	Route::get('/admin/simulasi/best-ott/movin','MovinController@index');
+	Route::get('/admin/simulasi/best-ott/catchplay','OttController@getcatchplay');
+	Route::get('/admin/simulasi/best-ott/iflix','Controller@');
+	Route::get('/admin/simulasi/best-ott/hooq','Controller@');
+	Route::get('/admin/simulasi/best-ott/movin','Controller@');
 
 	//best-addon 
 	Route::get('/admin/realisasi/best-addon/minipack','MinipackController@index_real');
@@ -59,10 +59,10 @@ Route::group(['middleware' => 'authenticated'], function() {
 });
 
 //USER - realisasi
-Route::get('/realisasi/best-addon/minipack','MinipackController@index_real');
-Route::get('/realisasi/best-addon/STBtambahan', 'STBController@index_real');
-Route::get('/realisasi/best-addon/teleponmania', 'TeleponManiaController@index_real');
-Route::get('/realisasi/best-addon/upgradespeed', 'UpgradeSpeedController@index_real');
+Route::get('/realisasi/best-ott/catchplay','OttController@getcatchplay');
+Route::get('/realisasi/best-ott/iflix','IflixController@index');
+Route::get('/realisasi/best-ott/hooq','HooqController@index');
+Route::get('/realisasi/best-ott/movin','MovinController@index');
 
 Route::get('/realisasi/best-addon/minipack','MinipackController@index_real');
 Route::get('/realisasi/best-addon/STBtambahan', 'STBController@index_real');
@@ -70,7 +70,7 @@ Route::get('/realisasi/best-addon/teleponmania', 'TeleponManiaController@index_r
 Route::get('/realisasi/best-addon/upgradespeed', 'UpgradeSpeedController@index_real');
 
 //USER - simulasi
-Route::get('/simulasi/best-ott/catchplay','CatchController@index');
+Route::get('/simulasi/best-ott/catchplay','OttController@getcatchplay');
 Route::get('/simulasi/best-ott/iflix','IflixController@index');
 Route::get('/simulasi/best-ott/hooq','HooqController@index');
 Route::get('/simulasi/best-ott/movin','MovinController@index');
@@ -95,7 +95,6 @@ Route::get('/achievement/best-addon/upgradespeed', 'UpgradeSpeedController@achie
 });*/
 //Route::get('/admin/best-ott','OttController@index');
 
-//Route::get('/best-ott','OttController@index');
 Route::post('/best-ott/search','OttController@postsearch_real');
 
 Route::get('/best-addon/minipack','MinipackController@index_real');

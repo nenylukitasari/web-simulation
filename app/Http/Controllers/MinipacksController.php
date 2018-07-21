@@ -3,23 +3,10 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\ott;
+use App\minipacks;
 
-class OttController extends Controller
+class MinipacksController extends Controller
 {
-    //
-    //public function index($id)
-    public function index()
-    {
-    	//return $id;
-    	$ott=ott::get();
-    	//$ott=ott::where('id',2)->get();
-    	// $ott=ott::find(2);
-    	// return $ott->created_at;
-    	//fr
-        //return $ott;
-    	return view('simulasi.best-ott',compact('ott'));
-    }
 
     public function input(Request $r)
     {
@@ -64,49 +51,8 @@ class OttController extends Controller
         }
     }
 
-    /*public function blnsearch(Request $r)
-    {
-        $cari_bulan = $r->cari_bulan;
-        return $r;
-        /*if ($cari_bulan!="")
-        {
-                $bln=Date("m");
-        $thn=Date("Y");
-        $witel=ott::select('witel')->where('tanggal','like',$thn."-".$bln.'%')->groupby('witel')->get();
 
-        $blnn=Date("n");
-        $list30=[4,6,9,11];
-        $list31=[1,3,5,7,8,10,12];
-
-        if(in_array($blnn, $list30))
-        {
-            $jmlhari=30;
-        }
-        elseif(in_array($blnn, $list31))
-        {
-            $jmlhari=31;
-        }
-        else
-        {
-            if($thn%4==0)
-            {
-                $jmlhari=29;
-            }
-            else
-            {
-                $jmlhari=28;
-            }
-        }
-        return view('realisasi.jmlottpersentase',compact('bln','witel','jmlhari','thn'));
-        }
-      else   
-         {
-            abort(404);
-        }
-    
-    }*/
-
-    public function getcatchplay()
+    public function minipacks()
     {
         $bln=Date("m");
         $thn=Date("Y");

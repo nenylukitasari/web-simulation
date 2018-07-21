@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateOttsTable extends Migration
+class CreateMinipacksTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,17 +13,15 @@ class CreateOttsTable extends Migration
      */
     public function up()
     {
-        Schema::create('otts', function (Blueprint $table) {
+        Schema::create('minipacks', function (Blueprint $table) {
             $table->increments('id');
             $table->date('tanggal');
             $table->string('witel');
-            $table->integer('catchplay');
-            $table->integer('iflix');
-            $table->integer('hooq');
-            $table->integer('movin');
-            $table->integer('jml_ott');
-            $table->integer('salesDIY');
-            $table->float('treshold');
+            $table->string('bobot');
+            $table->integer('input_minipacks');
+            $table->integer('realisasi_minipacks');
+            $table->integer('target_minipacks');
+            $table->integer('achievement');
             $table->timestamps();
         });
     }
@@ -35,6 +33,6 @@ class CreateOttsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('otts');
+        Schema::dropIfExists('minipacks');
     }
 }

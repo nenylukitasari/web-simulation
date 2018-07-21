@@ -6,7 +6,7 @@
 	Best OTT
 @endsection
 @section('right_title')
-	Realisasi / Best OTT
+	Simulasi / Best OTT
 @endsection
 @section('content')
 	<div class="animated fadeIn">

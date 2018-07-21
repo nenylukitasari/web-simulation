@@ -4,7 +4,8 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class ott extends Model
+class minipacks extends Model
 {
+   use Notifiable;
    protected $primaryKey = 'id';
 }
