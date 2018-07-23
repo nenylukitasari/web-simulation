@@ -16,7 +16,11 @@ Route::get('/', function () {
             return redirect('/admin');
   return view('welcome');
 }); 
-
+//IRSA
+Route::get('/catchplay','OttController@getcatchplay');
+Route::post('/search','OttController@blnsearch');
+Route::get('/form','OttController@form');
+Route::post('/input','OttController@input');
 	//Route::get('/admin/realisasi/best-ott/form','OttController@form');
 	//Route::post('/input','OttController@input');
 
