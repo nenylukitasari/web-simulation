@@ -20,22 +20,27 @@
 	                        <button class="btn btn-success" type="submit" value="submit" nama="Pencarian"><i class="fa fa-search"></i></button>
 	                    </form>
 	                </div>-->
+	            @php
+	            	$tahun=['2018','2019','2020'];
+	            @endphp
 				<div class="form-inline">
-	                    <form class="search-form" method="post" nama="blnn" action="{{url('search')}}">{{-- input ndes --}}
+	                    <form class="search-form" method="post" nama="blnn" action="{{url('searchcatchplay')}}">{{-- input ndes --}}
 	                        {{csrf_field()}}
 						<select name="bln">
-						<option value="1">Januari</option>
-						<option value="2">Februari</option>
-						<option value="3">Maret</option>
-						<option value="4">April</option>
-						<option value="5">Mei</option>
-						<option value="6">Juni</option>
-						<option value="7">Juli</option>
-						<option value="8">Agustus</option>
-						<option value="9">September</option>
-						<option value="10">Oktober</option>
-						<option value="12">November</option>
-						<option value="12">Desember</option>
+							@foreach($tahun as $thnx)
+								<option value="{{$thnx}}-01">Januari {{$thnx}}</option>
+								<option value="{{$thnx}}-02">Februari {{$thnx}}</option>
+								<option value="{{$thnx}}-03">Maret {{$thnx}}</option>
+								<option value="{{$thnx}}-04">April {{$thnx}}</option>
+								<option value="{{$thnx}}-05">Mei {{$thnx}}</option>
+								<option value="{{$thnx}}-06">Juni {{$thnx}}</option>
+								<option value="{{$thnx}}-07">Juli {{$thnx}}</option>
+								<option value="{{$thnx}}-08">Agustus {{$thnx}}</option>
+								<option value="{{$thnx}}-09">September {{$thnx}}</option>
+								<option value="{{$thnx}}-10">Oktober {{$thnx}}</option>
+								<option value="{{$thnx}}-11">November {{$thnx}}</option>
+								<option value="{{$thnx}}-12">Desember {{$thnx}}</option>
+							@endforeach
 						</select>
 						
 						
@@ -102,7 +107,7 @@
                             <div class="card-header">
                                 <strong>Form Edit Data</strong> 
                             </div>
-                            <form method="post" action="{{url('input')}}">{{-- input ndes --}}
+                            <form method="post" action="{{url('input-catchplay')}}">{{-- input ndes --}}
                                             {{csrf_field()}}
                             <div class="card-body card-block">
                                 <div class="form-group">

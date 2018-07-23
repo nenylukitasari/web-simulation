@@ -18,9 +18,12 @@ Route::get('/', function () {
 }); 
 //IRSA
 Route::get('/catchplay','OttController@getcatchplay');
-Route::post('/search','OttController@blnsearch');
+Route::post('/searchcatchplay','OttController@postcatchplay');
+//Route::post('/search','OttController@blnsearch');
 Route::get('/form','OttController@form');
-Route::post('/input','OttController@input');
+Route::post('/input-catchplay','OttController@input_catchplay');
+Route::get('/best-ott','OttController@index');
+
 	//Route::get('/admin/realisasi/best-ott/form','OttController@form');
 	//Route::post('/input','OttController@input');
 
