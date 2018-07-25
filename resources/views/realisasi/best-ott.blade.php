@@ -14,9 +14,10 @@
 			<div class="col-sm-7">
 	            <div class="header-left"><b>Search</b>
 	                <div class="form-inline">
-	                    <form class="search-form" method="post" action="{{url('search')}}">
+	                    <form class="search-form" method="post" action="{{url('searchbestott')}}">
 	                        {{csrf_field()}}
-	                        <input class="form-control mr-sm-2" type="date" name="cari_tanggal" required>
+	                        <input class="form-control mr-sm-2" type="date" name="cari_tanggal" required>-
+	                        <input class="form-control mr-sm-2" type="date" name="cari_akhir" required>
 	                        <button class="btn btn-success" type="submit" value="submit" nama="Pencarian"><i class="fa fa-search"></i></button>
 	                    </form>
 	                </div>
@@ -28,13 +29,12 @@
 			<div class="col-md-12">
 	            <div class="card">
 	                <div class="card-header">
-	                    <strong class="card-title">Data Table</strong>
+	                    <strong class="card-title">Data Table {{$tgl}} sampai {{$tgl_akhir}}</strong>
 	                </div>
 	                <div class="card-body">
 	          			<table id="bootstrap-data-table-export" class="table table-striped table-bordered">
 	            			<thead>
 	            				<!--<th align="center" valign="middle">Id</th>-->
-	            				<th align="center" valign="middle">Waktu</th>
 	            				<th align="center" valign="middle">Witel</th>
 	            				<th align="center" valign="middle">Jumlah Aktivasi Catchplay</th>
 	            				<th align="center" valign="middle">Jumlah Aktivasi Iflix</th>
@@ -50,16 +50,47 @@
 	            					@foreach($ott as $x)
 	            						<tr>
 	            							<!--<td>{{$x->id}}</td>-->
-	            							<td>{{$x->tanggal}}</td>
-                        					<td>{{$x->witel}}</td>
-                        					<td>{{$x->catchplay}}</td>
-                       		 				<td>{{$x->iflix}}</td>
-                       		 				<td>{{$x->hooq}}</td>
-                       		 				<td>{{$x->movin}}</td>
-                       		 				<td>{{$x->catchplay+$x->iflix+$x->hooq+$x->movin}}</td>
-                       		 				<td>{{number_format(($x->catchplay+$x->iflix+$x->hooq+$x->movin)/$x->salesDIY,2)}} % </td>
-	            							<td>{{$x->salesDIY}}</td>
-	            							<td>{{$x->treshold}} % </td>
+	            							@if($x->witel==null)
+	            								<td>0</td>
+	            							@else
+                        						<td>{{$x->witel}}</td>
+                        					@endif
+                        					@if($x->total_cp==null)
+                        						<td>0</td>
+                        					@else
+                        						<td>{{$x->total_cp}}</td>
+                        					@endif
+                        					@if($x->total_iflix==null)
+                        						<td>0</td>
+                        					@else
+	            								<td>{{$x->total_iflix}}</td>
+	            							@endif
+	            							@if($x->total_hooq==null)
+	            								<td>0</td>
+	            							@else
+	            								<td>{{$x->total_hooq}}</td>
+	            							@endif
+	            							@if($x->total_movin==null)
+	            								<td>0</td>
+	            							@else
+	            								<td>{{$x->total_movin}}</td>
+	            							@endif
+
+	            							@php
+	            								$total_ott=$x->total_cp+$x->total_iflix+$x->total_hooq+$x->total_movin;
+	            							@endphp
+	            							<td>{{$total_ott}}</td>
+	            							@if($x->total_diy==0)
+	            								<td>0 % </td>
+	            							@else
+	            								<td>{{number_format(($total_ott/$x->total_diy),2)}} % </td>
+	            							@endif
+	            							@if($x->total_diy==null)
+	            								<td>0</td>
+	            							@else
+	            								<td>{{$x->total_diy}}</td>
+	            							@endif
+	            							<td>70.00</td>
 	            						</tr>
 	            					@endforeach
 	            				@endif
@@ -71,12 +102,12 @@
 	    </div>
 	</div>
 @endsection
-@section('additional-script')
+@section('additional-script')		
 	<script src="{{asset('assets/js/lib/data-table/datatables.min.js')}}"></script>
     <script src="{{asset('assets/js/lib/data-table/dataTables.bootstrap.min.js')}}"></script>
     <script src="{{asset('assets/js/lib/data-table/dataTables.buttons.min.js')}}"></script>
     <script src="{{asset('assets/js/lib/data-table/buttons.bootstrap.min.js')}}"></script>
-    <script src="{{asset('assets/js/lib/data-table/jszip.min.js')}}"></script>
+    <script src="{{asset('assets/js/lib/data-table/jszip.min.js')}}"></script>                                             
     <script src="{{asset('assets/js/lib/data-table/pdfmake.min.js')}}"></script>
     <script src="{{asset('assets/js/lib/data-table/vfs_fonts.js')}}"></script>
     <script src="{{asset('assets/js/lib/data-table/buttons.html5.min.js')}}"></script>
