@@ -3,22 +3,22 @@
 	<link rel="stylesheet" href="{{asset('assets/css/lib/datatable/dataTables.bootstrap.min.css')}}">
 @endsection
 @section('title')
-	CATCHPLAY
+	Hooq
 @endsection
 @section('right_title')
-	Realisasi / Best OTT
+	Realisasi / Hooq
 @endsection
 @section('content')
 	<div class="animated fadeIn">
 		<div class="row">
 			<div class="col-sm-11">
 	            <div class="header-left"><b>Search</b>
-	              
+	                
 	            @php
 	            	$tahun=['2018','2019','2020'];
 	            @endphp
 				<div class="form-inline">
-	                    <form class="search-form" method="post" nama="blnn" action="{{url('searchcatchplay')}}">{{-- input ndes --}}
+	                    <form class="search-form" method="post" nama="blnn" action="{{url('searchhooq')}}">{{-- input ndes --}}
 	                        {{csrf_field()}}
 						<select name="bln">
 							@foreach($tahun as $thnx)
@@ -39,7 +39,7 @@
 						
 						
 						
-	                        <!--<input class="form-control mr-sm-2" type="text" name="bln" required>-->
+	                        
 	                        <button class="btn btn-success" type="submit" value="submit" nama="Pencarian"><i class="fa fa-search"></i></button>
 	                    </form>
 	                </div>
@@ -53,9 +53,9 @@
         <div class="row">
 			<div class="col-md-12">
 	            <div class="card">
-	                <div class="card-header">
-	                   <strong class="card-title">Data Table {{$bln}}</strong>
-	                </div>
+	               <!-- <div class="card-header">
+	                   <strong class="card-title">Data </strong>
+	                </div> -->
 	                <div class="card-body">
 	          			<table id="bootstrap-data-table-export" class="table table-striped table-bordered">
 	            			<thead>
@@ -79,12 +79,12 @@
 	            								{
 	            									$tgl=$x;
 	            								}
-	            								$jml=App\ott::select(DB::raw('SUM(catchplay) as total_cp'))->where('witel',$wit->witel)->groupby('witel')->where('tanggal',$thn."-".$bln."-".$tgl)->first();
+	            								$jml=App\ott::select(DB::raw('SUM(hooq) as total_hooq'))->where('witel',$wit->witel)->groupby('witel')->where('tanggal',$thn."-".$bln."-".$tgl)->first();
 	            							?>
 	            							@if($jml == null)
 	            								<td>0</td>
 	            							@else
-												<td>{{$jml->total_cp}}</td>
+												<td>{{$jml->total_hooq}}</td>
 											@endif
 			            				@endfor
 	            					</tr>
@@ -101,7 +101,7 @@
 				                            <div class="card-header">
 				                                <strong>Form Edit Data</strong> 
 				                            </div>
-				                            <form method="post" action="{{url('inputcatchplay')}}">
+				                            <form method="post" action="{{url('inputhooq')}}">
 				                                {{csrf_field()}}
 				                            	<div class="card-body card-block">
 				                                	<div class="form-group">
@@ -111,7 +111,7 @@
 				                                        	<div class="input-group-addon"><i class="fa fa-calendar"></i></div>
 				                                        	<input type="date" name="tanggal" class="form-control">
 				                                    	</div>
-				                                    <!--	<small class="form-text text-muted">ex. 99/99/9999</small>-->
+				                                    	<!--<small class="form-text text-muted">ex. 99/99/9999</small>-->
 				                                	</div>
 					                                <div class="form-group">
 					                                    <label class=" form-control-label">Nama Witel</label>
@@ -124,10 +124,10 @@
 					                                </div>
 
 					                                <div class="form-group">
-					                                    <label class=" form-control-label">Jumlah Aktivasi Catchplay</label>
+					                                    <label class=" form-control-label">Hooq</label>
 					                                    <div class="input-group">
 					                                        <div class="input-group-addon"><i class="fa fa-usd"></i></div>
-					                                        <input type="text" name="catchplay" class="form-control">
+					                                        <input type="text" name="hooq" class="form-control">
 					                                    </div>
 					                                    <!--<small class="form-text text-muted">ex. 99-9999999</small>-->
 					                                </div>
@@ -146,7 +146,7 @@
 	</div>              
 @endsection
 @section('additional-script')
-	
+	<script src="{{asset('assets/js/lib/data-table/datatables.min.js')}}"></script>
     <script src="{{asset('assets/js/lib/data-table/dataTables.bootstrap.min.js')}}"></script>
     <script src="{{asset('assets/js/lib/data-table/dataTables.buttons.min.js')}}"></script>
     <script src="{{asset('assets/js/lib/data-table/buttons.bootstrap.min.js')}}"></script>

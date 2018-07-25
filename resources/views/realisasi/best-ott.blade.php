@@ -35,15 +35,15 @@
 	          			<table id="bootstrap-data-table-export" class="table table-striped table-bordered">
 	            			<thead>
 	            				<!--<th align="center" valign="middle">Id</th>-->
-	            				<th align="center" valign="middle">Witel</th>
-	            				<th align="center" valign="middle">Jumlah Aktivasi Catchplay</th>
-	            				<th align="center" valign="middle">Jumlah Aktivasi Iflix</th>
-	            				<th align="center" valign="middle">Jumlah Aktivasi HOOQ</th>
-	            				<th align="center" valign="middle">Jumlah Aktivasi Movin</th>
-	            				<th align="center" valign="middle">Jumlah OTT</th>
-	            				<th align="center" valign="middle">Persentase</th>
-	            				<th align="center" valign="middle">Jumlah Sales IndiHome DIY</th>	
-	            				<th align="center" valign="middle">Treshold</th>
+	            				<td align="center" valign="middle"><b>Witel</b></td>
+	            				<td align="center" valign="middle"><b>Jumlah Aktivasi Catchplay</b></td>
+	            				<td align="center" valign="middle"><b>Jumlah Aktivasi Iflix</b></td>
+	            				<td align="center" valign="middle"><b>Jumlah Aktivasi HOOQ</b></td>
+	            				<td align="center" valign="middle"><b>Jumlah Aktivasi Movin</b></td>
+	            				<td align="center" valign="middle"><b>Jumlah OTT</b></td>
+	            				<td align="center" valign="middle"><b>Persentase</b></td>
+	            				<td align="center" valign="middle"><b>Jumlah Sales IndiHome DIY</b></td>	
+	            				<td align="center" valign="middle"><b>Treshold</b></td>
 	            			</thead>
 	            			<tbody>
 	            				@if($ott!=null)
@@ -90,7 +90,7 @@
 	            							@else
 	            								<td>{{$x->total_diy}}</td>
 	            							@endif
-	            							<td>70.00</td>
+	            							<td>70%</td>
 	            						</tr>
 	            					@endforeach
 	            				@endif
@@ -103,7 +103,7 @@
 	</div>
 @endsection
 @section('additional-script')		
-	<script src="{{asset('assets/js/lib/data-table/datatables.min.js')}}"></script>
+
     <script src="{{asset('assets/js/lib/data-table/dataTables.bootstrap.min.js')}}"></script>
     <script src="{{asset('assets/js/lib/data-table/dataTables.buttons.min.js')}}"></script>
     <script src="{{asset('assets/js/lib/data-table/buttons.bootstrap.min.js')}}"></script>
