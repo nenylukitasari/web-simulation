@@ -22,6 +22,40 @@
 	                    </form>
 	                </div>
 	            </div>
+	    <!--        <div class="col-xs-6 col-sm-6">
+                        <div class="card">
+                            <div class="card-header">
+                                <strong class="card-title">Standard Select</strong>
+                            </div>
+                            <div class="card-body">
+                                  <select data-placeholder="Choose a Country..." class="standardSelect" tabindex="1">
+                                    <option value=""></option>Catchplay
+                                    <option value="coba_catch"> <form class="search-form" method="post" action="{{url('/catchplay')}}">
+								                        {{csrf_field()}}</option>
+                                    <option value="United Kingdom">United Kingdom</option>
+                                    <option value="Afghanistan">Afghanistan</option>
+                                    <option value="Aland Islands">Aland Islands</option>
+                                -->
+
+            <!--        <div class="row form-group">
+                            <div class="col col-md-10"><label for="selectSm" class=" form-control-label">Select Small</label></div>
+                            <form class="search-form" method="get" nama="blnn" action="{{url('search_hal')}}">
+	                        {{csrf_field()}}
+                            <div class="col-18 col-md-12">
+                              <select name="selectSm" id="SelectLm" class="form-control-sm form-control">
+                              	 
+                                <option value="0">Please select</option>
+                                <option value="1">Test</option>
+                                <option value="2">Option #2</option>
+                                <option value="3">Option #3</option>
+                                <option value="4">Option #4</option>
+                                <option value="5">Option #5</option>
+                              </select>
+                              <button class="btn btn-success" type="submit" nama="halaman"><i class="fa fa-search"></i></button>
+                            </div>
+                        </form>
+                         </div>-->
+
 	        </div>
 		</div>
 		<br>
@@ -29,21 +63,21 @@
 			<div class="col-md-12">
 	            <div class="card">
 	                <div class="card-header">
-	                    <strong class="card-title">Data Table {{$tgl}} sampai {{$tgl_akhir}}</strong>
+	                    <strong class="card-title">Data OTT ({{$tgl}} hingga {{$tgl_akhir}})</strong>
 	                </div>
 	                <div class="card-body">
 	          			<table id="bootstrap-data-table-export" class="table table-striped table-bordered">
 	            			<thead>
 	            				<!--<th align="center" valign="middle">Id</th>-->
-	            				<td align="center" valign="middle"><b>Witel</b></td>
-	            				<td align="center" valign="middle"><b>Jumlah Aktivasi Catchplay</b></td>
-	            				<td align="center" valign="middle"><b>Jumlah Aktivasi Iflix</b></td>
-	            				<td align="center" valign="middle"><b>Jumlah Aktivasi HOOQ</b></td>
-	            				<td align="center" valign="middle"><b>Jumlah Aktivasi Movin</b></td>
+	            				<th align="center" valign="middle">Witel</th>
+	            				<td align="center" valign="middle"><b>Jumlah Catchplay</b></td>
+	            				<td align="center" valign="middle"><b>Jumlah Iflix</b></td>
+	            				<td align="center" valign="middle"><b>Jumlah HOOQ</b></td>
+	            				<td align="center" valign="middle"><b>Jumlah Movin</b></td>
 	            				<td align="center" valign="middle"><b>Jumlah OTT</b></td>
-	            				<td align="center" valign="middle"><b>Persentase</b></td>
+	            				<th align="center" valign="middle">Persentase</td>
 	            				<td align="center" valign="middle"><b>Jumlah Sales IndiHome DIY</b></td>	
-	            				<td align="center" valign="middle"><b>Treshold</b></td>
+	            				<th align="center" valign="middle">Treshold</th>
 	            			</thead>
 	            			<tbody>
 	            				@if($ott!=null)
@@ -51,46 +85,46 @@
 	            						<tr>
 	            							<!--<td>{{$x->id}}</td>-->
 	            							@if($x->witel==null)
-	            								<td>0</td>
+	            								<td align="center" valign="middle">0</td>
 	            							@else
-                        						<td>{{$x->witel}}</td>
+                        						<td align="center" valign="middle">{{$x->witel}}</td>
                         					@endif
                         					@if($x->total_cp==null)
-                        						<td>0</td>
+                        						<td align="center" valign="middle">0</td>
                         					@else
-                        						<td>{{$x->total_cp}}</td>
+                        						<td align="center" valign="middle">{{$x->total_cp}}</td>
                         					@endif
                         					@if($x->total_iflix==null)
-                        						<td>0</td>
+                        						<td align="center" valign="middle">0</td>
                         					@else
-	            								<td>{{$x->total_iflix}}</td>
+	            								<td align="center" valign="middle">{{$x->total_iflix}}</td>
 	            							@endif
 	            							@if($x->total_hooq==null)
-	            								<td>0</td>
+	            								<td align="center" valign="middle">0</td>
 	            							@else
-	            								<td>{{$x->total_hooq}}</td>
+	            								<td align="center" valign="middle">{{$x->total_hooq}}</td>
 	            							@endif
 	            							@if($x->total_movin==null)
-	            								<td>0</td>
+	            								<td align="center" valign="middle">0</td>
 	            							@else
-	            								<td>{{$x->total_movin}}</td>
+	            								<td align="center" valign="middle">{{$x->total_movin}}</td>
 	            							@endif
 
 	            							@php
 	            								$total_ott=$x->total_cp+$x->total_iflix+$x->total_hooq+$x->total_movin;
 	            							@endphp
-	            							<td>{{$total_ott}}</td>
+	            							<td align="center" valign="middle">{{$total_ott}}</td>
 	            							@if($x->total_diy==0)
-	            								<td>0 % </td>
+	            								<td align="center" valign="middle">0 % </td>
 	            							@else
-	            								<td>{{number_format(($total_ott/$x->total_diy),2)}} % </td>
+	            								<tdalign="center" valign="middle">{{number_format(($total_ott/$x->total_diy),2)}} % </td>
 	            							@endif
 	            							@if($x->total_diy==null)
-	            								<td>0</td>
+	            								<td align="center" valign="middle">0</td>
 	            							@else
-	            								<td>{{$x->total_diy}}</td>
+	            								<td align="center" valign="middle">{{$x->total_diy}}</td>
 	            							@endif
-	            							<td>70%</td>
+	            							<td align="center" valign="middle">70%</td>
 	            						</tr>
 	            					@endforeach
 	            				@endif

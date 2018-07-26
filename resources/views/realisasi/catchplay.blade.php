@@ -44,17 +44,19 @@
 	                    </form>
 	                </div>
 	            </div>
+	            <br>
 	        </div>
+<!--
 	           <div class="col-lg-14">
 	                    <div class="form-actions form-group"><button type="submit" class="btn btn-success btn-sm">EDIT</button></div>
 	                </div>  
-		</div>
+		</div>-->
 		<br>
         <div class="row">
 			<div class="col-md-12">
 	            <div class="card">
 	                <div class="card-header">
-	                   <strong class="card-title">Data Table {{$bln}}</strong>
+	                   <strong class="card-title">Data Catchplay bulan ke - {{$bln}}</strong>
 	                </div>
 	                <div class="card-body">
 	          			<table id="bootstrap-data-table-export" class="table table-striped table-bordered">
@@ -63,6 +65,7 @@
 	            				@for($x=1;$x<=$jmlhari;$x++)
 	            					<th align="center" valign="middle">{{$x}}</th>
 	            				@endfor
+	            				<th align="center" valign="middle">Total</th>
 	            			</thead>
 	            			<tbody>
 	            				@foreach($witel as $wit)
@@ -87,6 +90,13 @@
 												<td>{{$jml->total_cp}}</td>
 											@endif
 			            				@endfor
+
+			   							@if($wit->total_cp==null)
+                        						<td align="center" valign="middle">0</td>
+                        					@else
+                        						<td align="center" valign="middle">{{$wit->total_cp}}</td>
+                        					@endif
+
 	            					</tr>
 	            				@endforeach      
 	            			</tbody>

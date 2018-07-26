@@ -53,8 +53,8 @@
         <div class="row">
 			<div class="col-md-12">
 	            <div class="card">
-	               <!-- <div class="card-header">
-	                   <strong class="card-title">Data </strong>
+	               <div class="card-header">
+	                   <strong class="card-title">Data Movin bulan ke - {{$bln}} </strong>
 	                </div> -->
 	                <div class="card-body">
 	          			<table id="bootstrap-data-table-export" class="table table-striped table-bordered">
@@ -63,6 +63,7 @@
 	            				@for($x=1;$x<=$jmlhari;$x++)
 	            					<th align="center" valign="middle">{{$x}}</th>
 	            				@endfor
+	            				<th align="center" valign="middle">Total</th>
 	            			</thead>
 	            			<tbody>
 	            				@foreach($witel as $wit)
@@ -87,6 +88,12 @@
 												<td>{{$jml->total_movin}}</td>
 											@endif
 			            				@endfor
+			            				@if($wit->total_movin==null)
+                        						<td align="center" valign="middle">0</td>
+                        					@else
+                        						<td align="center" valign="middle">{{$wit->total_movin}}</td>
+                        					@endif
+
 	            					</tr>
 	            				@endforeach      
 	            			</tbody>
@@ -146,7 +153,7 @@
 	</div>              
 @endsection
 @section('additional-script')
-	<script src="{{asset('assets/js/lib/data-table/datatables.min.js')}}"></script>
+	
     <script src="{{asset('assets/js/lib/data-table/dataTables.bootstrap.min.js')}}"></script>
     <script src="{{asset('assets/js/lib/data-table/dataTables.buttons.min.js')}}"></script>
     <script src="{{asset('assets/js/lib/data-table/buttons.bootstrap.min.js')}}"></script>

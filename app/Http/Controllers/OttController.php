@@ -44,6 +44,15 @@ class OttController extends Controller
         return view('realisasi.best-ott',compact('ott','tgl','tgl_akhir'));
     }
 
+    public function search_hal(Request $r)
+    {
+        return value;
+        /*if (value==1)
+        {
+            return redirect('/iflix');
+        }*/
+    }
+
     public function input(Request $r)
     {
     	$ott=new ott();
@@ -90,7 +99,7 @@ class OttController extends Controller
         {
             $bln=Date("m");
             $thn=Date("Y");
-            $witel=ott::select('witel')->where('tanggal','like',$thn."-".$bln.'%')->groupby('witel')->get();
+            $witel=ott::select('witel',DB::raw('sum(catchplay) as total_cp'))->where('tanggal','like',$thn."-".$bln.'%')->groupby('witel')->get();
             $blnn=Date("n");
             $list30=[4,6,9,11];
             $list31=[1,3,5,7,8,10,12];
@@ -179,7 +188,7 @@ class OttController extends Controller
     {
         $bln=Date("m");
         $thn=Date("Y");
-        $witel=ott::select('witel')->where('tanggal','like',$thn."-".$bln.'%')->groupby('witel')->get();
+        $witel=ott::select('witel',DB::raw('sum(iflix) as total_iflix'))->where('tanggal','like',$thn."-".$bln.'%')->groupby('witel')->get();
         $blnn=Date("n");
         $list30=[4,6,9,11];
         $list31=[1,3,5,7,8,10,12];
@@ -355,7 +364,7 @@ public function gethooq()
         {
             $bln=Date("m");
             $thn=Date("Y");
-            $witel=ott::select('witel')->where('tanggal','like',$thn."-".$bln.'%')->groupby('witel')->get();
+            $witel=ott::select('witel',DB::raw('sum(salesDIY) as total_diy'))->where('tanggal','like',$thn."-".$bln.'%')->groupby('witel')->get();
             $blnn=Date("n");
             $list30=[4,6,9,11];
             $list31=[1,3,5,7,8,10,12];
@@ -443,7 +452,7 @@ public function gethooq()
         {
             $bln=Date("m");
             $thn=Date("Y");
-            $witel=ott::select('witel')->where('tanggal','like',$thn."-".$bln.'%')->groupby('witel')->get();
+            $witel=ott::select('witel',DB::raw('sum(movin) as total_movin'))->where('tanggal','like',$thn."-".$bln.'%')->groupby('witel')->get();
             $blnn=Date("n");
             $list30=[4,6,9,11];
             $list31=[1,3,5,7,8,10,12];

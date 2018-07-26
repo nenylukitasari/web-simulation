@@ -50,8 +50,8 @@
         <div class="row">
 			<div class="col-md-12">
 	            <div class="card">
-	               <!-- <div class="card-header">
-	                   <strong class="card-title">Data </strong>
+	                <div class="card-header">
+	                   <strong class="card-title">Data Sales Indihome bulan ke - {{$bln}} </strong>
 	                </div> -->
 	                <div class="card-body">
 	          			<table id="bootstrap-data-table-export" class="table table-striped table-bordered">
@@ -60,6 +60,7 @@
 	            				@for($x=1;$x<=$jmlhari;$x++)
 	            					<th align="center" valign="middle">{{$x}}</th>
 	            				@endfor
+	            				<th align="center" valign="middle">Total</th>
 	            			</thead>
 	            			<tbody>
 	            				@foreach($witel as $wit)
@@ -76,14 +77,19 @@
 	            								{
 	            									$tgl=$x;
 	            								}
-	            								$jml=App\ott::select(DB::raw('SUM(salesDIY) as total_sales'))->where('witel',$wit->witel)->groupby('witel')->where('tanggal',$thn."-".$bln."-".$tgl)->first();
+	            								$jml=App\ott::select(DB::raw('SUM(salesDIY) as total_diy'))->where('witel',$wit->witel)->groupby('witel')->where('tanggal',$thn."-".$bln."-".$tgl)->first();
 	            							?>
 	            							@if($jml == null)
 	            								<td>0</td>
 	            							@else
-												<td>{{$jml->total_sales}}</td>
+												<td>{{$jml->total_diy}}</td>
 											@endif
 			            				@endfor
+			            				@if($wit->total_diy==null)
+                        						<td align="center" valign="middle">0</td>
+                        					@else
+                        						<td align="center" valign="middle">{{$wit->total_diy}}</td>
+                        					@endif
 	            					</tr>
 	            				@endforeach      
 	            			</tbody>
@@ -143,7 +149,7 @@
 	</div>              
 @endsection
 @section('additional-script')
-	<script src="{{asset('assets/js/lib/data-table/datatables.min.js')}}"></script>
+	
     <script src="{{asset('assets/js/lib/data-table/dataTables.bootstrap.min.js')}}"></script>
     <script src="{{asset('assets/js/lib/data-table/dataTables.buttons.min.js')}}"></script>
     <script src="{{asset('assets/js/lib/data-table/buttons.bootstrap.min.js')}}"></script>

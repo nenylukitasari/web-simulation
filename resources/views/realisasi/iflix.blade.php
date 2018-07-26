@@ -69,6 +69,7 @@
 	            				@for($x=1;$x<=$jmlhari;$x++)
 	            					<th align="center" valign="middle">{{$x}}</th>
 	            				@endfor
+	            				<th align="center" valign="middle">Total</th>
 	            			</thead>
 	            			<tbody>
 	            				@foreach($witel as $wit)
@@ -93,6 +94,11 @@
 												<td>{{$jml->total_iflix}}</td>
 											@endif
 			            				@endfor
+			            				@if($wit->total_iflix==null)
+                        						<td align="center" valign="middle">0</td>
+                        					@else
+                        						<td align="center" valign="middle">{{$wit->total_iflix}}</td>
+                        					@endif
 	            					</tr>
 	            				@endforeach      
 	            			</tbody>
@@ -152,7 +158,7 @@
 	</div>              
 @endsection
 @section('additional-script')
-	<script src="{{asset('assets/js/lib/data-table/datatables.min.js')}}"></script>
+	
     <script src="{{asset('assets/js/lib/data-table/dataTables.bootstrap.min.js')}}"></script>
     <script src="{{asset('assets/js/lib/data-table/dataTables.buttons.min.js')}}"></script>
     <script src="{{asset('assets/js/lib/data-table/buttons.bootstrap.min.js')}}"></script>
