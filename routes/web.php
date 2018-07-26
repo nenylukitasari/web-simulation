@@ -117,3 +117,12 @@ Route::get('/formneny','AddonController@form');
 Route::get('/simulasi/best-addon/STBtambahan', 'STBController@index');
 Route::get('/simulasi/best-addon/teleponmania', 'TeleponManiaController@index');
 Route::get('/simulasi/best-addon/upgradespeed', 'UpgradeSpeedController@index');
+
+
+//NENY
+Route::get('/best-addon','AddonController@index');
+Route::post('/searchminipack','AddonController@postminipack');
+Route::post('/searchbestaddon','AddonController@searchbestaddon');
+Route::post('/input_minipack','AddonController@input_minipack');
+Route::get('/best-addon/minipack','AddonController@getminipack');
+Route::get('/best-addon/minipack/input','AddonController@getminipack');
