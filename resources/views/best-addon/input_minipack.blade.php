@@ -36,26 +36,31 @@
 								<option value="{{$thnx}}-12">Desember {{$thnx}}</option>
 							@endforeach
 						</select>
-						
-						
-						
 	                        <!--<input class="form-control mr-sm-2" type="text" name="bln" required>-->
 	                        <button class="btn btn-success" type="submit" value="submit" nama="Pencarian"><i class="fa fa-search"></i></button>
 	                    </form>
+	                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+	                    <div class="dropdown">
+					    <button class="btn btn-success" type="button" data-toggle="dropdown">MINIPACK
+					    <span class="caret"></span></button>
+					    <ul class="dropdown-menu">
+					      <li><a href="{{ URL('/best-addon/minipack/input') }}">&nbsp;&nbsp;&nbsp;&nbsp;Input</a></li>
+					      <li class="divider"></li>
+					      <li><a href="{{ URL('/best-addon/minipack/realisasi') }}">&nbsp;&nbsp;&nbsp;&nbsp;Realisasi</a></li>  
+					  	<li><a href="{{ URL('/best-addon/minipack/target') }}">&nbsp;&nbsp;&nbsp;&nbsp;Target</a></li>  
+					    </ul>
+					  </div>
 	                </div>
 	            </div>
 	        </div>
-	           <div class="col-lg-14">
-	                    <div class="form-actions form-group"><button type="submit" class="btn btn-success btn-sm">EDIT</button></div>
-	                </div>  
 		</div>
 		<br>
         <div class="row">
 			<div class="col-md-12">
 	            <div class="card">
-	               <!-- <div class="card-header">
-	                   <strong class="card-title">Data Table</strong>
-	                </div>-->
+	                <div class="card-header">
+	                   <strong class="card-title">Data Catchplay bulan ke - {{$bln}}</strong>
+	                </div>
 	                <div class="card-body">
 	          			<table id="bootstrap-data-table-export" class="table table-striped table-bordered">
 	            			<thead>
@@ -63,6 +68,7 @@
 	            				@for($x=1;$x<=$jmlhari;$x++)
 	            					<th align="center" valign="middle">{{$x}}</th>
 	            				@endfor
+	            				<th align="center" valign="middle">Total</th>
 	            			</thead>
 	            			<tbody>
 	            				@foreach($witel as $wit)
@@ -87,6 +93,12 @@
 												<td>{{$jml->total_inpminipack}}</td>
 											@endif
 			            				@endfor
+
+			            				@if($wit->total_inpminipack==null)
+                        						<td align="center" valign="middle">0</td>
+                        				@else
+                        						<td align="center" valign="middle">{{$wit->total_inpminipack}}</td>
+                        				@endif
 	            					</tr>
 	            				@endforeach      
 	            			</tbody>

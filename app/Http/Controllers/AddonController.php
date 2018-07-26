@@ -17,14 +17,39 @@ class AddonController extends Controller
         $bln=explode("-",$tgl_akhir)[1];
         $tgl=Date("Y-m-")."01";
 
-        $addon=addon::select('witel',DB::raw('sum(input_minipack) as total_inpminipack,sum(realisasi_minipack) as total_reminipack,sum(target_minipack)as total_targetminipack,sum(achievement_minipack) as total_achminipack,
+        $addon=addon::select('witel',DB::raw('sum(input_minipack) as total_inpminipack,sum(realisasi_minipack) as total_reminipack,sum(target_minipack)as total_targetminipack,
 
             sum(input_stb) as total_inpstb,sum(realisasi_stb) as total_restb,sum(target_stb)as total_targetstb,sum(achievement_stb) as total_achstb,
 
-            sum(input_telepon) as total_inptelepon,sum(realisasi_telepon) as total_retelepon,sum(target_telepon)as total_targettelepon,sum(achievement_telepon) as total_achtelepon,
+            sum(input_telepon) as total_inptelepon,sum(realisasi_telepon) as total_retelepon,sum(target_telepon)as total_targettelepon,
 
-            sum(input_upspeed) as total_inpupspeed,sum(realisasi_upspeed) as total_reupspeed,sum(target_upspeed)as total_targetupspeed,sum(achievement_upspeed) as total_achupspeed'))->where('tanggal','like','____-'.$bln.'-%')->where('tanggal',$tgl_akhir)->groupBy('witel')->get();
+            sum(input_upspeed) as total_inpupspeed,sum(realisasi_upspeed) as total_reupspeed,sum(target_upspeed)as total_targetupspeed'))->where('tanggal','like','____-'.$bln.'-%')->where('tanggal',$tgl_akhir)->groupBy('witel')->get();
         
+        return view('best-addon.index-addon',compact('addon','tgl','tgl_akhir'));
+    }
+
+    public function searchbestaddon(Request $r)
+    {
+        if($r->cari_tanggal>$r->cari_akhir)
+        {
+            $tgl_akhir=$r->cari_tanggal;
+            $tgl=$r->cari_akhir;
+        }
+        else
+        {
+            $tgl=$r->cari_tanggal;
+            $tgl_akhir=$r->cari_akhir;
+        }
+        
+        $addon=addon::select('witel',DB::raw('sum(input_minipack) as total_inpminipack,sum(realisasi_minipack) as total_reminipack,sum(target_minipack)as total_targetminipack,
+
+            sum(input_stb) as total_inpstb,sum(realisasi_stb) as total_restb,sum(target_stb)as total_targetstb,
+
+            sum(input_telepon) as total_inptelepon,sum(realisasi_telepon) as total_retelepon,sum(target_telepon)as total_targettelepon,
+
+            sum(input_upspeed) as total_inpupspeed,sum(realisasi_upspeed) as total_reupspeed,sum(target_upspeed)as total_targetupspeed'))->where('tanggal','>=',$tgl)->where('tanggal','<=',$tgl_akhir)->groupBy('witel')->get();
+
+        //return redirect('/index');
         return view('best-addon.index-addon',compact('addon','tgl','tgl_akhir'));
     }
 
@@ -77,7 +102,7 @@ class AddonController extends Controller
     {
         $bln=Date("m");
         $thn=Date("Y");
-        $witel=addon::select('witel')->where('tanggal','like',$thn."-".$bln.'%')->groupby('witel')->get();
+        $witel=addon::select('witel', DB::raw('sum(input_minipack) as total_inpminipack'))->where('tanggal','like',$thn."-".$bln.'%')->groupby('witel')->get();
         $blnn=Date("n");
         $list30=[4,6,9,11];
         $list31=[1,3,5,7,8,10,12];

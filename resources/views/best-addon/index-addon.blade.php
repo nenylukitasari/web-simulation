@@ -1,9 +1,10 @@
 @extends('layouts.master')
 @section('add-css')
 	<link rel="stylesheet" href="{{asset('assets/css/lib/datatable/dataTables.bootstrap.min.css')}}">
+	<link rel="stylesheet" href="{{ URL('assets/css/divider.css') }}">
 @endsection
 @section('title')
-	Dashboard
+	Dashboard AddOn
 @endsection
 @section('right_title')
 	Best Add-On / Dashboard 
@@ -14,12 +15,24 @@
 			<div class="col-sm-7">
 	            <div class="header-left"><b>Search</b>
 	                <div class="form-inline">
-	                    <form class="search-form" method="post" action="{{url('searchbestott')}}">
+	                    <form class="search-form" method="post" action="{{url('/searchbestaddon')}}">
 	                        {{csrf_field()}}
 	                        <input class="form-control mr-sm-2" type="date" name="cari_tanggal" required>-
 	                        <input class="form-control mr-sm-2" type="date" name="cari_akhir" required>
 	                        <button class="btn btn-success" type="submit" value="submit" nama="Pencarian"><i class="fa fa-search"></i></button>
 	                    </form>
+
+	                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+	                    <div class="dropdown">
+					    <button class="btn btn-success" type="button" data-toggle="dropdown">MENU
+					    <span class="caret"></span></button>
+					    <ul class="dropdown-menu">
+					      <li><a href="{{ URL('/best-addon') }}">&nbsp;&nbsp;&nbsp;&nbsp;Dashboard</a></li>
+					      <li class="divider"></li>
+					      <li><a href="{{ URL('/best-addon/minipack') }}">&nbsp;&nbsp;&nbsp;&nbsp;Minipack</a></li>  
+					    </ul>
+					  </div>
+
 	                </div>
 	            </div>
 	        </div>
@@ -42,25 +55,25 @@
 	            				<td colspan="4" align="center" valign="middle"><b>STB Tambahan</b></td>
 	            				<td colspan="4" align="center" valign="middle"><b>Telepon Mania</b></td>
 	            				<td colspan="4" align="center" valign="middle"><b>Upgrade Speed</b></td>
-	            				<th rowspan="2">Total</th>
+	            				<th rowspan="2" align="center" valign="middle">Total Achievement</th>
 	            				</tr>
 	            				<tr>
-	            				<th align="center" valign="middle">Jumlah Input</th>
-	            				<th align="center" valign="middle">Jumlah Realisasi</th>
-	            				<th align="center" valign="middle">Jumlah Target</th>
-	            				<th align="center" valign="middle">Jumlah Achievement</th>
-	            				<th align="center" valign="middle">Jumlah Input</th>
-	            				<th align="center" valign="middle">Jumlah Realisasi</th>
-	            				<th align="center" valign="middle">Jumlah Target</th>
-	            				<th align="center" valign="middle">Jumlah Achievement</th>
-	            				<th align="center" valign="middle">Jumlah Input</th>
-	            				<th align="center" valign="middle">Jumlah Realisasi</th>
-	            				<th align="center" valign="middle">Jumlah Target</th>
-	            				<th align="center" valign="middle">Jumlah Achievement</th>
-	            				<th align="center" valign="middle">Jumlah Input</th>
-	            				<th align="center" valign="middle">Jumlah Realisasi</th>
-	            				<th align="center" valign="middle">Jumlah Target</th>
-	            				<th align="center" valign="middle">Jumlah Achievement</th>
+	            				<td align="center" valign="middle"><b>Jumlah Input</b></td>
+	            				<td align="center" valign="middle"><b>Jumlah Realisasi</b></td>
+	            				<td align="center" valign="middle"><b>Jumlah Target</b></td>
+	            				<td align="center" valign="middle"><b>Jumlah Achievement</b></td>
+	            				<td align="center" valign="middle"><b>Jumlah Input</b></td>
+	            				<td align="center" valign="middle"><b>Jumlah Realisasi</b></td>
+	            				<td align="center" valign="middle"><b>Jumlah Target</b></td>
+	            				<td align="center" valign="middle"><b>Jumlah Achievement</b></td>
+	            				<td align="center" valign="middle"><b>Jumlah Input</b></td>
+	            				<td align="center" valign="middle"><b>Jumlah Realisasi</b></td>
+	            				<td align="center" valign="middle"><b>Jumlah Target</b></td>
+	            				<td align="center" valign="middle"><b>Jumlah Achievement</b></td>
+	            				<td align="center" valign="middle"><b>Jumlah Input</b></td>
+	            				<td align="center" valign="middle"><b>Jumlah Realisasi</b></td>
+	            				<td align="center" valign="middle"><b>Jumlah Target</b></td>
+	            				<td align="center" valign="middle"><b>Jumlah Achievement</b></td>
 	            				</tr>
 	            			
 	            			</thead>
@@ -90,22 +103,14 @@
 	            							@else
 	            								<td>{{$x->total_targetminipack}}</td>
 	            							@endif
-	            							 ------
-	            							
-	            							
-	            							@if($x->total_achminipack==0)
+
+	            							@if($x->total_targetminipack==0)
 	            								<td>0 % </td>
 	            							@else
 	            								<td>{{number_format($x->total_reminipack/$x->total_targetminipack*25/100,2)}} % </td>
 	            							@endif
-	            							@if($x->total_achminipack==null)
-                        						<td>0</td>
-                        					@else
-                        						<td>{{$x->total_achminipack}}</td>
-                        					@endif
------
 
-	            							@if($x->total_inpstb==null)
+                        					@if($x->total_inpstb==null)
                         						<td>0</td>
                         					@else
                         						<td>{{$x->total_inpstb}}</td>
@@ -121,12 +126,12 @@
 	            								<td>{{$x->total_targetstb}}</td>
 	            							@endif
 
-	            							@if($x->total_achstb==null)
-	            								<td>0</td>
+	            							@if($x->total_targetstb==0)
+	            								<td>0 % </td>
 	            							@else
-	            								<td>{{$x->total_achstb}}</td>
+	            								<td>{{number_format($x->total_restb/$x->total_targetstb*35/100,2)}} % </td>
 	            							@endif
-	            							
+
 	            							@if($x->total_inptelepon==null)
                         						<td>0</td>
                         					@else
@@ -142,12 +147,13 @@
 	            							@else
 	            								<td>{{$x->total_targettelepon}}</td>
 	            							@endif
-	            							@if($x->total_achtelepon==null)
-	            								<td>0</td>
+
+	            							@if($x->total_targettelepon==0)
+	            								<td>0 % </td>
 	            							@else
-	            								<td>{{$x->total_achtelepon}}</td>
+	            								<td>{{number_format($x->total_retelepon/$x->total_targettelepon*15/100,2)}} % </td>
 	            							@endif
-	            							
+
 	            							@if($x->total_inpupspeed==null)
                         						<td>0</td>
                         					@else
@@ -163,16 +169,47 @@
 	            							@else
 	            								<td>{{$x->total_targetupspeed}}</td>
 	            							@endif
-	            							@if($x->total_achupspeed==null)
-	            								<td>0</td>
+
+	            							@if($x->total_targetupspeed==0)
+	            								<td>0 % </td>
 	            							@else
-	            								<td>{{$x->total_achupspeed}}</td>
+	            								<td>{{number_format($x->total_reupspeed/$x->total_targetupspeed*25/100,2)}} % </td>
 	            							@endif
 
-	            							@php
-	            								$total_achaddon=$x->total_achminipack+$x->total_achstb+$x->total_achtelepon+$x->total_achupspeed;
-	            							@endphp
-	            							<td>{{$total_achaddon}}</td>
+	            							@if($x->total_targetminipack==0 && $x->total_targetstb==0 && $x->total_targettelepon==0 && $x->total_targetupspeed==0)
+	            								<td>0 % </td>
+	            							@elseif($x->total_targetminipack==0 && $x->total_targetstb==0 && $x->total_targettelepon==0)
+	            								<td>{{number_format($x->total_reupspeed/$x->total_targetupspeed*25/100,2)}} % </td>
+	            							@elseif($x->total_targetminipack==0 && $x->total_targetstb==0 && $x->total_targetupspeed==0)
+	            								<td>{{number_format($x->total_retelepon/$x->total_targettelepon*15/100,2)}} % </td>
+	            							@elseif($x->total_targetupspeed==0 && $x->total_targetstb==0 && $x->total_targettelepon==0)
+	            								<td>{{number_format($x->total_reminipack/$x->total_targetminipack*25/100,2)}} % </td>
+	            							@elseif($x->total_targetminipack==0 && $x->total_targetstb==0)
+	            								<td>{{number_format(($x->total_retelepon/$x->total_targettelepon*15/100)+ ($x->total_reupspeed/$x->total_targetupspeed*25/100),2)}} % </td>
+	            							@elseif($x->total_targetminipack==0 && $x->total_targettelepon==0)
+	            								<td>{{number_format(($x->total_restb/$x->total_targetstb*35/100)+ ($x->total_reupspeed/$x->total_targetupspeed*25/100),2)}} % </td>
+	            							@elseif($x->total_targetminipack==0 && $x->total_targetupspeed==0)
+	            								<td>{{number_format(($x->total_restb/$x->total_targetstb*35/100)+ ($x->total_retelepon/$x->total_targettelepon*15/100),2)}} % </td>
+	            							@elseif($x->total_targetstb==0 && $x->total_targettelepon==0)
+	            								<td>{{number_format(($x->total_reminipack/$x->total_targetminipack*25/100)+ ($x->total_reupspeed/$x->total_targetupspeed*25/100),2)}} % </td>
+	            							@elseif($x->total_targetstb==0 && $x->total_targetupspeed==0)
+	            								<td>{{number_format(($x->total_reminipack/$x->total_targetminipack*25/100) +($x->total_retelepon/$x->total_targettelepon*15/100),2)}} % </td>
+	            							@elseif($x->total_targetupspeed==0 && $x->total_targettelepon==0)
+	            								<td>{{number_format(($x->total_reminipack/$x->total_targetminipack*25/100) + ($x->total_restb/$x->total_targetstb*35/100),2)}} % </td>
+
+	            							@elseif($x->total_targetminipack==0)
+	            								<td>{{number_format(($x->total_restb/$x->total_targetstb*35/100)+ ($x->total_retelepon/$x->total_targettelepon*15/100)+ ($x->total_reupspeed/$x->total_targetupspeed*25/100),2)}} % </td>
+	            							@elseif($x->total_targetstb==0)
+	            								<td>{{number_format(($x->total_reminipack/$x->total_targetminipack*25/100)+ ($x->total_retelepon/$x->total_targettelepon*15/100)+ ($x->total_reupspeed/$x->total_targetupspeed*25/100),2)}} % </td>
+	            							@elseif($x->total_targettelepon==0)
+	            								<td>{{number_format(($x->total_reminipack/$x->total_targetminipack*25/100) + ($x->total_restb/$x->total_targetstb*35/100)+ ($x->total_reupspeed/$x->total_targetupspeed*25/100),2)}} % </td>
+	            							@elseif($x->total_targetupspeed==0)
+	            								<td>{{number_format(($x->total_reminipack/$x->total_targetminipack*25/100) + ($x->total_restb/$x->total_targetstb*35/100)+ ($x->total_retelepon/$x->total_targettelepon*15/100),2)}} % </td>
+	            							@endif
+
+	            							
+	            							
+	
 	            						</tr>
 	            					@endforeach
 	            				@endif
@@ -195,6 +232,9 @@
     <script src="{{asset('assets/js/lib/data-table/buttons.print.min.js')}}"></script>
     <script src="{{asset('assets/js/lib/data-table/buttons.colVis.min.js')}}"></script>
     <script src="{{asset('assets/js/lib/data-table/datatables-init.js')}}"></script>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 
 
     <script type="text/javascript">
