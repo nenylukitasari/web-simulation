@@ -17,13 +17,13 @@ class CreateOttsTable extends Migration
             $table->increments('id');
             $table->date('tanggal');
             $table->string('witel');
-            $table->integer('catchplay');
-            $table->integer('iflix');
-            $table->integer('hooq');
-            $table->integer('movin');
-            $table->integer('jml_ott');
-            $table->integer('salesDIY');
-            $table->float('treshold');
+            $table->integer('catchplay')->nullable();
+            $table->integer('iflix')->nullable();
+            $table->integer('hooq')->nullable();
+            $table->integer('movin')->nullable();
+            $table->integer('jml_ott')->nullable();
+            $table->integer('salesDIY')->nullable();
+            $table->float('treshold')->nullable();
             $table->timestamps();
         });
     }
