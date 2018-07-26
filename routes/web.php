@@ -17,14 +17,39 @@ Route::get('/', function () {
   return view('welcome');
 }); 
 //IRSA
+
+//IRSA
 Route::get('/catchplay','OttController@getcatchplay');
-Route::get('/iflix','OttController@getiflix');
+Route::get('/coba','OttController@index');
 Route::post('/searchcatchplay','OttController@postcatchplay');
+
+Route::get('/iflix','OttController@getiflix');
+Route::post('/searchiflix','OttController@postiflix');
+
+Route::get('/hooq','OttController@gethooq');
+Route::post('/searchhooq','OttController@posthooq');
+
+Route::get('/movin','OttController@getmovin');
+Route::post('/searchmovin','OttController@postmovin');
+
+Route::get('/salesDIY','OttController@getsales');
+Route::get('/iflix-coba','OttController@search_hal');
+Route::post('/searchsales','OttController@postsales');
+
 //Route::post('/search','OttController@blnsearch');
+Route::post('/searchbestott','OttController@searchbestottx');
+
+//harus auth
+Route::post('/inputcatchplay','OttController@inputcatchplay');
+Route::post('/inputiflix','OttController@inputiflix');
+Route::post('/inputhooq','OttController@inputhooq');
+Route::post('/inputmovin','OttController@inputmovin');
+Route::post('/inputsales','OttController@inputsales');
+//
 Route::get('/form','OttController@form');
-//Route::post('/input-catchplay','OttController@input_catchplay');
 Route::post('/input','OttController@input');
 Route::get('/best-ott','OttController@index');
+
 
 	//Route::get('/admin/realisasi/best-ott/form','OttController@form');
 	//Route::post('/input','OttController@input');
