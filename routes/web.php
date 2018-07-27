@@ -62,42 +62,9 @@ Route::get('admin/logout', 'MainController@logout');
 Route::group(['middleware' => 'authenticated'], function() {
 	Route::get('/admin', 'MainController@successlogin');
 
-/*	//best-ott
-	Route::get('/admin/realisasi/best-ott/catchplay','OttController@getcatchplay_real');
-	Route::get('/admin/realisasi/best-ott/iflix','Controller@');
-	Route::get('/admin/realisasi/best-ott/hooq','Controller@');
-	Route::get('/admin/realisasi/best-ott/movin','Controller@');
 
-	//best-addon 
-	Route::get('/admin/realisasi/best-addon/minipack','MinipackController@index_real');
-	Route::get('/admin/realisasi/best-addon/STBtambahan', 'STBController@index_real');
-	Route::get('/admin/realisasi/best-addon/teleponmania', 'TeleponManiaController@index_real');
-	Route::get('/admin/realisasi/best-addon/upgradespeed', 'UpgradeSpeedController@index_real');
-
-	Route::get('/admin/achievement/best-addon/minipack','MinipackController@achievement');
-	Route::get('/admin/achievement/best-addon/STBtambahan', 'STBController@achievement');
-	Route::get('/admin/achievement/best-addon/teleponmania', 'TeleponManiaController@achievement');
-	Route::get('/admin/achievement/best-addon/upgradespeed', 'UpgradeSpeedController@achievement');
-
-	Route::get('/admin/simulasi/best-addon/minipack','MinipackController@index');
-	Route::get('/admin/simulasi/best-addon/STBtambahan', 'STBController@index');
-	Route::get('/admin/simulasi/best-addon/teleponmania', 'TeleponManiaController@index');
-	Route::get('/admin/simulasi/best-addon/upgradespeed', 'UpgradeSpeedController@index');
-	
-*/
 });
-/*
-//USER - realisasi
-Route::get('/realisasi/best-ott/catchplay','OttController@getcatchplay');
-Route::get('/realisasi/best-ott/iflix','IflixController@index');
-Route::get('/realisasi/best-ott/hooq','HooqController@index');
-Route::get('/realisasi/best-ott/movin','MovinController@index');
 
-Route::get('/realisasi/best-addon/minipack','MinipackController@index_real');
-Route::get('/realisasi/best-addon/STBtambahan', 'STBController@index_real');
-Route::get('/realisasi/best-addon/teleponmania', 'TeleponManiaController@index_real');
-Route::get('/realisasi/best-addon/upgradespeed', 'UpgradeSpeedController@index_real');
-*/
 
 //USER - simulasi
 Route::get('/index','AddonController@index');
