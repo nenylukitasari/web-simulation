@@ -86,10 +86,20 @@ Route::get('/simulasi/best-addon/teleponmania', 'TeleponManiaController@index');
 Route::get('/simulasi/best-addon/upgradespeed', 'UpgradeSpeedController@index');
 
 
+
 //NENY
 Route::get('/best-addon','AddonController@index');
-Route::post('/searchminipack','AddonController@postminipack');
 Route::post('/searchbestaddon','AddonController@searchbestaddon');
+
+Route::get('/best-addon/minipack/input','AddonController@getminipack_input');
+Route::post('/searchinputminipack','AddonController@postminipack_input');
+
+Route::get('/best-addon/minipack/realisasi','AddonController@getminipack_realisasi');
+Route::post('/searchrealisasiminipack','AddonController@postminipack_realisasi');
+
+Route::get('/best-addon/stb/input','AddonController@getminipack_input');
+Route::post('/searchinputminipack','AddonController@postminipack_input');
+
+//admin
 Route::post('/input_minipack','AddonController@input_minipack');
-Route::get('/best-addon/minipack','AddonController@getminipack');
-Route::get('/best-addon/minipack/input','AddonController@getminipack');
+Route::post('/realisasi_minipack','AddonController@realisasi_minipack');
