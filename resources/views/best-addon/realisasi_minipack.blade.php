@@ -6,7 +6,7 @@
 	Minipack
 @endsection
 @section('right_title')
-	Best Add-On / Minipack / Input 
+	Best Add-On / Minipack / Realisasi
 @endsection
 @section('content')
 	<div class="animated fadeIn">
@@ -18,7 +18,7 @@
 	            	$tahun=['2018','2019','2020'];
 	            @endphp
 				<div class="form-inline">
-	                    <form class="search-form" method="post" nama="blnn" action="{{url('/searchinputminipack')}}">
+	                    <form class="search-form" method="post" nama="blnn" action="{{url('/searchrealisasiminipack')}}">
 	                        {{csrf_field()}}
 						<select name="bln">
 							@foreach($tahun as $thnx)
@@ -86,25 +86,24 @@
 	            								{
 	            									$tgl=$x;
 	            								}
-	            								$jml=App\addon::select(DB::raw('SUM(input_minipack) as total_inpminipack'))->where('witel',$wit->witel)->groupby('witel')->where('tanggal',$thn."-".$bln."-".$tgl)->first();
+	            								$jml=App\addon::select(DB::raw('SUM(realisasi_minipack) as total_reminipack'))->where('witel',$wit->witel)->groupby('witel')->where('tanggal',$thn."-".$bln."-".$tgl)->first();
 	            							?>
 	            							@if($jml == null)
 	            								<td>0</td>
 	            							@else
-												<td>{{$jml->total_inpminipack}}</td>
+												<td>{{$jml->total_reminipack}}</td>
 											@endif
 			            				@endfor
 
-			            				@if($wit->total_inpminipack==null)
+			            				@if($wit->total_reminipack==null)
                         						<td align="center" valign="middle">0</td>
                         				@else
-                        						<td align="center" valign="middle">{{$wit->total_inpminipack}}</td>
+                        						<td align="center" valign="middle">{{$wit->total_reminipack}}</td>
                         				@endif
 	            					</tr>
 	            				@endforeach      
 	            			</tbody>
 	            		</table>
-	            		 @if(Auth::check())
 						<div class="content mt-3">
 				            <div class="animated fadeIn">
 
@@ -115,7 +114,7 @@
 				                            <div class="card-header">
 				                                <strong>Form Edit Data</strong> 
 				                            </div>
-				                            <form method="post" action="{{url('/input_minipack')}}">
+				                            <form method="post" action="{{url('/realisasi_minipack')}}">
 				                                {{csrf_field()}}
 				                            	<div class="card-body card-block">
 				                                	<div class="form-group">
@@ -138,10 +137,10 @@
 					                                </div>
 
 					                                <div class="form-group">
-					                                    <label class=" form-control-label">Jumlah Input Minipack</label>
+					                                    <label class=" form-control-label">Jumlah Realisasi Minipack</label>
 					                                    <div class="input-group">
 					                                        <div class="input-group-addon"><i class="fa fa-usd"></i></div>
-					                                        <input type="text" name="input_minipack" class="form-control">
+					                                        <input type="text" name="realisasi_minipack" class="form-control">
 					                                    </div>
 					                                    <!--<small class="form-text text-muted">ex. 99-9999999</small>-->
 					                                </div>
@@ -153,8 +152,6 @@
 					            </div>
 					        </div>
 					    </div>
-					    @endif
-					    
 					</div>
 				</div>
 			</div>

@@ -55,18 +55,28 @@ class AddonController extends Controller
 
     public function input_minipack(Request $r)
     {
-        $addon=new addon();
-        $addon->tanggal=$r->tanggal;
-        $addon->witel=$r->witel;
-        $addon->input_minipack=$r->input_minipack;
-        $addon->realisasi_minipack=$r->realisasi_minipack;
-        $addon->target_minipack=$r->target_minipack;
-    
-        $addon->save();
-        return redirect('/minipack');
+        $cek=addon::where('tanggal',$r->tanggal)->where('witel',$r->witel)->first();
+        if($cek!=null)
+        {
+            $cek->input_minipack=$r->input_minipack;//
+            $cek->save();
+            return redirect('/best-addon/minipack/input');
+        }
+        else
+        {
+            $addon=new addon();
+            $addon->tanggal=$r->tanggal;
+            $addon->witel=$r->witel;
+            $addon->input_minipack=$r->input_minipack;
+            $addon->realisasi_minipack=$r->realisasi_minipack;
+            $addon->target_minipack=$r->target_minipack;
+        
+            $addon->save();
+            return redirect('/best-addon/minipack/input');
+        }
     }
 
-    public function postminipack(Request $r)
+    public function postminipack_input(Request $r)
     {
         $blnthn=explode("-",$r->bln);
         $bln=$blnthn[1];
@@ -98,7 +108,7 @@ class AddonController extends Controller
         return view('best-addon.input_minipack',compact('bln','witel','jmlhari','thn'));
     }
 
-    public function getminipack()
+    public function getminipack_input()
     {
         $bln=Date("m");
         $thn=Date("Y");
@@ -130,5 +140,91 @@ class AddonController extends Controller
         return view('best-addon.input_minipack',compact('bln','witel','jmlhari','thn'));
     }
 
+    public function realisasi_minipack(Request $r)
+    {
+        $cek=addon::where('tanggal',$r->tanggal)->where('witel',$r->witel)->first();
+        if($cek!=null)
+        {
+            $cek->realisasi_minipack=$r->realisasi_minipack;//
+            $cek->save();
+            return redirect('/best-addon/minipack/realisasi');
+        }
+        else
+        {
+            $addon=new addon();
+            $addon->tanggal=$r->tanggal;
+            $addon->witel=$r->witel;
+            $addon->realisasi_minipack=$r->realisasi_minipack;
+            $addon->input_minipack=$r->input_minipack;
+            $addon->target_minipack=$r->target_minipack;
+        
+            $addon->save();
+            return redirect('/best-addon/minipack/realisasi');
+        }
+    }
+
+    public function postminipack_realisasi(Request $r)
+    {
+        $blnthn=explode("-",$r->bln);
+        $bln=$blnthn[1];
+        $thn=$blnthn[0];
+        $witel=addon::select('witel')->where('tanggal','like',$r->bln.'%')->groupby('witel')->get();
+       // return $witel;
+        $list30=["04","06","09","11"];
+        $list31=["01","03","05","07","08","10","12"];
+        if(in_array($bln, $list30))
+        {
+            $jmlhari=30;
+        }
+        elseif(in_array($bln, $list31))
+        {
+            $jmlhari=31;
+        }
+        else
+        {
+            if($thn%4==0)
+            {
+                $jmlhari=29;
+            }
+            else
+            {
+                $jmlhari=28;
+            }
+        }
+
+        return view('best-addon.realisasi_minipack',compact('bln','witel','jmlhari','thn'));
+    }
+
+    public function getminipack_realisasi()
+    {
+        $bln=Date("m");
+        $thn=Date("Y");
+        $witel=addon::select('witel', DB::raw('sum(realisasi_minipack) as total_reminipack'))->where('tanggal','like',$thn."-".$bln.'%')->groupby('witel')->get();
+        $blnn=Date("n");
+        $list30=[4,6,9,11];
+        $list31=[1,3,5,7,8,10,12];
+
+        if(in_array($blnn, $list30))
+        {
+            $jmlhari=30;
+        }
+        elseif(in_array($blnn, $list31))
+        {
+            $jmlhari=31;
+        }
+        else
+        {
+            if($thn%4==0)
+            {
+                $jmlhari=29;
+            }
+            else
+            {
+                $jmlhari=28;
+            }
+        }
+
+        return view('best-addon.realisasi_minipack',compact('bln','witel','jmlhari','thn'));
+    }
 
 }

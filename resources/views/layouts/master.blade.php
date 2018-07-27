@@ -43,24 +43,12 @@
 
             <div id="main-menu" class="main-menu collapse navbar-collapse">
                 <ul class="nav navbar-nav">
-                    
-                        @if(Auth::check())
-                        <li>
-                            <a href="{{ URL('/admin/best-ott') }}"> <i class="menu-icon fa fa-dashboard"></i>Best-OTT </a>
-                        </li>
-                        <li>
-                            <a href="{{ URL('/admin/best-addon') }}"> <i class="menu-icon fa fa-dashboard"></i>Best-AddOn </a>
-                        </li>
-                        @else
                         <li>
                             <a href="{{ URL('/best-ott') }}"> <i class="menu-icon fa fa-dashboard"></i>Best-OTT </a>
                         </li>
                         <li>
                             <a href="{{ URL('/best-addon') }}"> <i class="menu-icon fa fa-dashboard"></i>Best-AddOn </a>
                         </li>
-                    @endif
-                    
-                    
                 </ul>
             </div><!-- /.navbar-collapse -->
         </nav>

@@ -27,9 +27,12 @@
 					    <button class="btn btn-success" type="button" data-toggle="dropdown">MENU
 					    <span class="caret"></span></button>
 					    <ul class="dropdown-menu">
-					      <li><a href="{{ URL('/best-addon') }}">&nbsp;&nbsp;&nbsp;&nbsp;Dashboard</a></li>
+					      <li><a href="{{ URL('/best-addon') }}">&nbsp;&nbsp;&nbsp;&nbsp;Dashboard Addon</a></li>
 					      <li class="divider"></li>
-					      <li><a href="{{ URL('/best-addon/minipack') }}">&nbsp;&nbsp;&nbsp;&nbsp;Minipack</a></li>  
+					      <li><a href="{{ URL('/best-addon/minipack/input') }}">&nbsp;&nbsp;&nbsp;&nbsp;Minipack</a></li>  
+					      <li><a href="{{ URL('/best-addon/stb/input') }}">&nbsp;&nbsp;&nbsp;&nbsp;STB Tambahan</a></li>  
+					      <li><a href="{{ URL('/best-addon/minipack/input') }}">&nbsp;&nbsp;&nbsp;&nbsp;Telepon Mania</a></li>  
+					      <li><a href="{{ URL('/best-addon/minipack/input') }}">&nbsp;&nbsp;&nbsp;&nbsp;Upgrade Speed</a></li> 
 					    </ul>
 					  </div>
 
