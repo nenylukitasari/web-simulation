@@ -16,9 +16,7 @@ Route::get('/', function () {
             return redirect('/admin');
   return view('welcome');
 }); 
-//IRSA
-
-//IRSA
+//best-ott
 Route::get('/best-ott','OttController@index');
 Route::get('/best-ott/catchplay','OttController@getcatchplay');
 Route::post('/best-ott/searchcatchplay','OttController@postcatchplay');
@@ -46,13 +44,29 @@ Route::post('/best-ott/inputhooq','OttController@inputhooq');
 Route::post('/best-ott/inputmovin','OttController@inputmovin');
 Route::post('/best-ott/inputsales','OttController@inputsales');
 //
-Route::get('/form','OttController@form');
-Route::post('/input','OttController@input');
+//Route::get('/form','OttController@form');
+//Route::post('/input','OttController@input');
+
+
+
+	//Route::get('/admin/realisasi/best-ott/form','OttController@form');
+	//Route::post('/input','OttController@input');
 
 Route::get('/login', 'MainController@index');
 Route::post('/login/checklogin', 'MainController@checklogin');
 Route::get('admin/logout', 'MainController@logout');
 
+//ADMIN
+Route::group(['middleware' => 'authenticated'], function() {
+	Route::get('/admin', 'MainController@successlogin');
+	Route::get('/inputcatchplay', 'MainController@successlogin');
+	Route::get('/inputiflix', 'MainController@successlogin');
+	Route::get('/inputhooq', 'MainController@successlogin');
+	Route::get('/inputvin', 'MainController@successlogin');
+	Route::get('/inputsales', 'MainController@successlogin');
+
+
+});
 //ADMIN
 Route::group(['middleware' => 'authenticated'], function() {
 	Route::get('/admin', 'MainController@successlogin');
