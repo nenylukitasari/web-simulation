@@ -18,43 +18,25 @@
 	                        {{csrf_field()}}
 	                        <input class="form-control mr-sm-2" type="date" name="cari_tanggal" required>-
 	                        <input class="form-control mr-sm-2" type="date" name="cari_akhir" required>
-	                        <button class="btn btn-success" type="submit" value="submit" nama="Pencarian"><i class="fa fa-search"></i></button>
+	                        <button class="btn btn-danger btn-sm" type="submit" value="submit" nama="Pencarian"><i class="fa fa-search"></i></button>
 	                    </form>
+	                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+	                    <div class="dropdown">
+					    <button class="btn btn-primary btn-sm" type="button" data-toggle="dropdown"><b>MENU
+					    <span class="caret"></span></b></button>
+					    <ul class="dropdown-menu">
+
+					      <li><a href="{{ URL('/best-ott') }}">&nbsp;&nbsp;&nbsp;&nbsp;Dashboard OTT</a></li>
+					      <li class="divider"></li>
+					      <li><a href="{{ URL('/best-ott/catchplay') }}">&nbsp;&nbsp;&nbsp;&nbsp;Catchplay</a></li>  
+					      <li><a href="{{ URL('/best-addon/minipack') }}">&nbsp;&nbsp;&nbsp;&nbsp;Iflix</a></li> 
+					      <li><a href="{{ URL('/best-addon/minipack') }}">&nbsp;&nbsp;&nbsp;&nbsp;Hooq</a></li> 
+					      <li><a href="{{ URL('/best-addon/minipack') }}">&nbsp;&nbsp;&nbsp;&nbsp;Movin</a></li> 
+					    </ul>
+					  </div>
 	                </div>
 	            </div>
-	    <!--        <div class="col-xs-6 col-sm-6">
-                        <div class="card">
-                            <div class="card-header">
-                                <strong class="card-title">Standard Select</strong>
-                            </div>
-                            <div class="card-body">
-                                  <select data-placeholder="Choose a Country..." class="standardSelect" tabindex="1">
-                                    <option value=""></option>Catchplay
-                                    <option value="coba_catch"> <form class="search-form" method="post" action="{{url('/catchplay')}}">
-								                        {{csrf_field()}}</option>
-                                    <option value="United Kingdom">United Kingdom</option>
-                                    <option value="Afghanistan">Afghanistan</option>
-                                    <option value="Aland Islands">Aland Islands</option>
-                                -->
-
-            <!--        <div class="row form-group">
-                            <div class="col col-md-10"><label for="selectSm" class=" form-control-label">Select Small</label></div>
-                            <form class="search-form" method="get" nama="blnn" action="{{url('search_hal')}}">
-	                        {{csrf_field()}}
-                            <div class="col-18 col-md-12">
-                              <select name="selectSm" id="SelectLm" class="form-control-sm form-control">
-                              	 
-                                <option value="0">Please select</option>
-                                <option value="1">Test</option>
-                                <option value="2">Option #2</option>
-                                <option value="3">Option #3</option>
-                                <option value="4">Option #4</option>
-                                <option value="5">Option #5</option>
-                              </select>
-                              <button class="btn btn-success" type="submit" nama="halaman"><i class="fa fa-search"></i></button>
-                            </div>
-                        </form>
-                         </div>-->
+	    				
 
 	        </div>
 		</div>

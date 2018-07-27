@@ -13,13 +13,7 @@
 		<div class="row">
 			<div class="col-sm-11">
 	            <div class="header-left"><b>Search</b>
-	                <!--<div class="form-inline">
-	                    <form class="search-form" method="post" action="{{url('search')}}">{{-- input ndes --}}
-	                        {{csrf_field()}}
-	                        <input class="form-control mr-sm-2" type="date" name="cari_tanggal" required>
-	                        <button class="btn btn-success" type="submit" value="submit" nama="Pencarian"><i class="fa fa-search"></i></button>
-	                    </form>
-	                </div>-->
+	           
 	            @php
 	            	$tahun=['2018','2019','2020'];
 	            @endphp
@@ -46,8 +40,22 @@
 						
 						
 	                        <!--<input class="form-control mr-sm-2" type="text" name="bln" required>-->
-	                        <button class="btn btn-success" type="submit" value="submit" nama="Pencarian"><i class="fa fa-search"></i></button>
+	                        <button class="btn btn-danger btn-sm" type="submit" value="submit" nama="Pencarian"><i class="fa fa-search"></i></button>
 	                    </form>
+	                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+	                    <div class="dropdown">
+					    <button class="btn btn-primary btn-sm" type="button" data-toggle="dropdown"><b>MENU</b>
+					    <span class="caret"></span></button>
+					    <ul class="dropdown-menu">
+
+					      <li><a href="{{ URL('/best-ott') }}">&nbsp;&nbsp;&nbsp;&nbsp;Dashboard OTT</a></li>
+					      <li class="divider"></li>
+					      <li><a href="{{ URL('/best-ott/catchplay') }}">&nbsp;&nbsp;&nbsp;&nbsp;Catchplay</a></li>  
+					      <li><a href="{{ URL('/best-ott/iflix') }}">&nbsp;&nbsp;&nbsp;&nbsp;Iflix</a></li> 
+					      <li><a href="{{ URL('/best-ott/hooq') }}">&nbsp;&nbsp;&nbsp;&nbsp;Hooq</a></li> 
+					      <li><a href="{{ URL('/best-ott/movin') }}">&nbsp;&nbsp;&nbsp;&nbsp;Movin</a></li> 
+					    </ul>
+					  </div>
 	                </div>
 	            </div>
 	        </div>
@@ -59,8 +67,8 @@
         <div class="row">
 			<div class="col-md-12">
 	            <div class="card">
-	               <!-- <div class="card-header">
-	                   <strong class="card-title">Data Table</strong>
+	                <div class="card-header">
+	                   <strong class="card-title">Data Iflix bulan ke - {{$bln}}</strong>
 	                </div>-->
 	                <div class="card-body">
 	          			<table id="bootstrap-data-table-export" class="table table-striped table-bordered">
@@ -113,7 +121,7 @@
 				                            <div class="card-header">
 				                                <strong>Form Edit Data</strong> 
 				                            </div>
-				                            <form method="post" action="{{url('inputiflix')}}">
+				                            <form method="post" action="{{url('/best-ott/inputiflix')}}">
 				                                {{csrf_field()}}
 				                            	<div class="card-body card-block">
 				                                	<div class="form-group">

@@ -134,7 +134,7 @@ class OttController extends Controller
             {
                 $cek->catchplay=$r->catchplay;//
                 $cek->save();
-                return redirect('/catchplay');
+                return redirect('best-ott/catchplay');
             }
             else
             {
@@ -147,7 +147,7 @@ class OttController extends Controller
                 $ott->salesDIY=$r->salesDIY;
                 $ott->treshold=70;
                 $ott->save();
-                return redirect('/catchplay');
+                return redirect('best-ott/catchplay');
             }
         }
 
@@ -236,7 +236,7 @@ class OttController extends Controller
             $ott->salesDIY=$r->salesDIY;
             $ott->treshold=70;
             $ott->save();
-            return redirect('/iflix');
+            return redirect('best-ott/iflix');
         }
     }
 
@@ -311,7 +311,7 @@ public function gethooq()
             {
                 $cek->hooq=$r->hooq;//
                 $cek->save();
-                return redirect('/hooq');
+                return redirect('best-ott/hooq');
             }
             else
             {
@@ -324,7 +324,7 @@ public function gethooq()
                 $ott->salesDIY=$r->salesDIY;
                 $ott->treshold=70;
                 $ott->save();
-                return redirect('/hooq');
+                return redirect('best-ott/hooq');
             }
         }
 
@@ -399,7 +399,7 @@ public function gethooq()
             {
                 $cek->salesDIY=$r->salesDIY;//
                 $cek->save();
-                return redirect('/salesDIY');
+                return redirect('best-ott/salesDIY');
             }
             else
             {
@@ -412,7 +412,7 @@ public function gethooq()
                 //$ott->salesDIY=$r->salesDIY;
                 $ott->treshold=70;
                 $ott->save();
-                return redirect('/salesDIY');
+                return redirect('best-ott/salesDIY');
             }
         }
 
@@ -487,7 +487,7 @@ public function gethooq()
             {
                 $cek->movin=$r->movin;//
                 $cek->save();
-                return redirect('/movin');
+                return redirect('best-ott/movin');
             }
             else
             {
@@ -500,7 +500,7 @@ public function gethooq()
                // $ott->salesDIY=$r->salesDIY;
                 $ott->treshold=70;
                 $ott->save();
-                return redirect('/movin');
+                return redirect('best-ott/movin');
             }
         }
 
