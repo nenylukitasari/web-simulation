@@ -223,7 +223,7 @@ class OttController extends Controller
         {
             $cek->iflix=$r->iflix;//
             $cek->save();
-            return redirect('/iflix');
+            return redirect('best-ott/iflix');
         }
         else
         {

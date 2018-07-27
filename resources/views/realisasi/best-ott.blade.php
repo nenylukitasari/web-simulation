@@ -29,9 +29,10 @@
 					      <li><a href="{{ URL('/best-ott') }}">&nbsp;&nbsp;&nbsp;&nbsp;Dashboard OTT</a></li>
 					      <li class="divider"></li>
 					      <li><a href="{{ URL('/best-ott/catchplay') }}">&nbsp;&nbsp;&nbsp;&nbsp;Catchplay</a></li>  
-					      <li><a href="{{ URL('/best-addon/minipack') }}">&nbsp;&nbsp;&nbsp;&nbsp;Iflix</a></li> 
-					      <li><a href="{{ URL('/best-addon/minipack') }}">&nbsp;&nbsp;&nbsp;&nbsp;Hooq</a></li> 
-					      <li><a href="{{ URL('/best-addon/minipack') }}">&nbsp;&nbsp;&nbsp;&nbsp;Movin</a></li> 
+					      <li><a href="{{ URL('/best-ott/iflix') }}">&nbsp;&nbsp;&nbsp;&nbsp;Iflix</a></li> 
+					      <li><a href="{{ URL('/best-ott/hooq') }}">&nbsp;&nbsp;&nbsp;&nbsp;Hooq</a></li> 
+					      <li><a href="{{ URL('/best-ott/movin') }}">&nbsp;&nbsp;&nbsp;&nbsp;Movin</a></li> 
+					      <li><a href="{{ URL('/best-ott/salesDIY') }}">&nbsp;&nbsp;&nbsp;&nbsp;Sales Indihome</a></li>
 					    </ul>
 					  </div>
 	                </div>
@@ -57,7 +58,7 @@
 	            				<td align="center" valign="middle"><b>Jumlah HOOQ</b></td>
 	            				<td align="center" valign="middle"><b>Jumlah Movin</b></td>
 	            				<td align="center" valign="middle"><b>Jumlah OTT</b></td>
-	            				<th align="center" valign="middle">Persentase</td>
+	            				<td align="center" valign="middle"><b>Persentase</b></td>
 	            				<td align="center" valign="middle"><b>Jumlah Sales IndiHome DIY</b></td>	
 	            				<th align="center" valign="middle">Treshold</th>
 	            			</thead>
@@ -96,10 +97,11 @@
 	            								$total_ott=$x->total_cp+$x->total_iflix+$x->total_hooq+$x->total_movin;
 	            							@endphp
 	            							<td align="center" valign="middle">{{$total_ott}}</td>
+
 	            							@if($x->total_diy==0)
 	            								<td align="center" valign="middle">0 % </td>
 	            							@else
-	            								<tdalign="center" valign="middle">{{number_format(($total_ott/$x->total_diy),2)}} % </td>
+	            								<td align="center" valign="middle">{{number_format(($total_ott/$x->total_diy),2)}} % </td>
 	            							@endif
 	            							@if($x->total_diy==null)
 	            								<td align="center" valign="middle">0</td>

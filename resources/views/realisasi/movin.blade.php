@@ -18,7 +18,7 @@
 	            	$tahun=['2018','2019','2020'];
 	            @endphp
 				<div class="form-inline">
-	                    <form class="search-form" method="post" nama="blnn" action="{{url('searchmovin')}}">{{-- input ndes --}}
+	                    <form class="search-form" method="post" nama="blnn" action="{{url('searchmovin')}}">
 	                        {{csrf_field()}}
 						<select name="bln">
 							@foreach($tahun as $thnx)
@@ -40,14 +40,28 @@
 						
 						
 	                        
-	                        <button class="btn btn-success" type="submit" value="submit" nama="Pencarian"><i class="fa fa-search"></i></button>
+	                        <button class="btn btn-danger btn-sm" type="submit" value="submit" nama="Pencarian"><i class="fa fa-search"></i></button>
 	                    </form>
+
+	                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+	                    <div class="dropdown">
+					    <button class="btn btn-primary btn-sm" type="button" data-toggle="dropdown"><b>MENU
+					    <span class="caret"></span></b></button>
+					    <ul class="dropdown-menu">
+
+					      <li><a href="{{ URL('/best-ott') }}">&nbsp;&nbsp;&nbsp;&nbsp;Dashboard OTT</a></li>
+					      <li class="divider"></li>
+					      <li><a href="{{ URL('/best-ott/catchplay') }}">&nbsp;&nbsp;&nbsp;&nbsp;Catchplay</a></li>  
+					      <li><a href="{{ URL('/best-ott/iflix') }}">&nbsp;&nbsp;&nbsp;&nbsp;Iflix</a></li> 
+					      <li><a href="{{ URL('/best-ott/hooq') }}">&nbsp;&nbsp;&nbsp;&nbsp;Hooq</a></li> 
+					      <li><a href="{{ URL('/best-ott/movin') }}">&nbsp;&nbsp;&nbsp;&nbsp;Movin</a></li> 
+					      <li><a href="{{ URL('/best-ott/salesDIY') }}">&nbsp;&nbsp;&nbsp;&nbsp;Sales Indihome</a></li>
+					    </ul>
+					  </div>
 	                </div>
 	            </div>
 	        </div>
-	           <div class="col-lg-14">
-	                    <div class="form-actions form-group"><button type="submit" class="btn btn-success btn-sm">EDIT</button></div>
-	                </div>  
+	           
 		</div>
 		<br>
         <div class="row">
@@ -98,6 +112,7 @@
 	            				@endforeach      
 	            			</tbody>
 	            		</table>
+	            		@if(Auth::check())
 						<div class="content mt-3">
 				            <div class="animated fadeIn">
 
@@ -146,6 +161,7 @@
 					            </div>
 					        </div>
 					    </div>
+					    @endif
 					</div>
 				</div>
 			</div>
