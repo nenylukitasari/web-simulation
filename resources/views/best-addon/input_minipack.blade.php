@@ -44,9 +44,8 @@
 					    <button class="btn btn-primary btn-sm" type="button" data-toggle="dropdown"><b>MINIPACK</b>
 					    <span class="caret"></span></button>
 					    <ul class="dropdown-menu">
-					      <li><a href="{{ URL('/best-addon/minipack/input') }}">&nbsp;&nbsp;&nbsp;&nbsp;Dashboard AddOn</a></li>
+					      <li><a href="{{ URL('/best-addon') }}">&nbsp;&nbsp;&nbsp;&nbsp;Dashboard AddOn</a></li>
 					      <li><a href="{{ URL('/best-addon/minipack/input') }}">&nbsp;&nbsp;&nbsp;&nbsp;Input</a></li>
-					      <li class="divider"></li>
 					      <li><a href="{{ URL('/best-addon/minipack/realisasi') }}">&nbsp;&nbsp;&nbsp;&nbsp;Realisasi</a></li>  
 					  	<li><a href="{{ URL('/best-addon/minipack/target') }}">&nbsp;&nbsp;&nbsp;&nbsp;Target</a></li>  
 					    </ul>
@@ -104,7 +103,7 @@
 	            				@endforeach      
 	            			</tbody>
 	            		</table>
-	            		 @if(Auth::check())
+	            		@if(Auth::check())
 						<div class="content mt-3">
 				            <div class="animated fadeIn">
 

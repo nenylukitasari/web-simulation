@@ -19,20 +19,19 @@
 	                        {{csrf_field()}}
 	                        <input class="form-control mr-sm-2" type="date" name="cari_tanggal" required>-
 	                        <input class="form-control mr-sm-2" type="date" name="cari_akhir" required>
-	                        <button class="btn btn-success" type="submit" value="submit" nama="Pencarian"><i class="fa fa-search"></i></button>
+	                        <button class="btn btn-danger btn-sm" type="submit" value="submit" nama="Pencarian"><i class="fa fa-search"></i></button>
 	                    </form>
 
 	                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 	                    <div class="dropdown">
-					    <button class="btn btn-success" type="button" data-toggle="dropdown">MENU
+					    <button class="btn btn-primary btn-sm" type="button" data-toggle="dropdown">MENU
 					    <span class="caret"></span></button>
 					    <ul class="dropdown-menu">
 					      <li><a href="{{ URL('/best-addon') }}">&nbsp;&nbsp;&nbsp;&nbsp;Dashboard Addon</a></li>
-					      <li class="divider"></li>
 					      <li><a href="{{ URL('/best-addon/minipack/input') }}">&nbsp;&nbsp;&nbsp;&nbsp;Minipack</a></li>  
 					      <li><a href="{{ URL('/best-addon/stb/input') }}">&nbsp;&nbsp;&nbsp;&nbsp;STB Tambahan</a></li>  
-					      <li><a href="{{ URL('/best-addon/minipack/input') }}">&nbsp;&nbsp;&nbsp;&nbsp;Telepon Mania</a></li>  
-					      <li><a href="{{ URL('/best-addon/minipack/input') }}">&nbsp;&nbsp;&nbsp;&nbsp;Upgrade Speed</a></li> 
+					      <li><a href="{{ URL('/best-addon/telepon/input') }}">&nbsp;&nbsp;&nbsp;&nbsp;Telepon Mania</a></li>  
+					      <li><a href="{{ URL('/best-addon/upspeed/input') }}">&nbsp;&nbsp;&nbsp;&nbsp;Upgrade Speed</a></li> 
 					    </ul>
 					  </div>
 
@@ -54,10 +53,10 @@
 	            				
 								<tr>
 	            				<th rowspan="2">Witel</th>
-	            				<td colspan="4" align="center" valign="middle"><b>Minipack</b></td>
-	            				<td colspan="4" align="center" valign="middle"><b>STB Tambahan</b></td>
-	            				<td colspan="4" align="center" valign="middle"><b>Telepon Mania</b></td>
-	            				<td colspan="4" align="center" valign="middle"><b>Upgrade Speed</b></td>
+	            				<td colspan="4" align="center" valign="middle"><b>Minipack</b> (25%)</td>
+	            				<td colspan="4" align="center" valign="middle"><b>STB Tambahan</b> (35%)</td>
+	            				<td colspan="4" align="center" valign="middle"><b>Telepon Mania</b> (15%)</td>
+	            				<td colspan="4" align="center" valign="middle"><b>Upgrade Speed</b> (25%)</td>
 	            				<th rowspan="2" align="center" valign="middle">Total Achievement</th>
 	            				</tr>
 	            				<tr>

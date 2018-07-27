@@ -18,7 +18,7 @@
 	            	$tahun=['2018','2019','2020'];
 	            @endphp
 				<div class="form-inline">
-	                    <form class="search-form" method="post" nama="blnn" action="{{url('/searchrealisasiminipack')}}">
+	                    <form class="search-form" method="post" nama="blnn" action="{{url('/searchtargetminipack')}}">
 	                        {{csrf_field()}}
 						<select name="bln">
 							@foreach($tahun as $thnx)
@@ -44,9 +44,8 @@
 					    <button class="btn btn-primary btn-sm" type="button" data-toggle="dropdown"><b>MINIPACK</b>
 					    <span class="caret"></span></button>
 					    <ul class="dropdown-menu">
-					      <li><a href="{{ URL('/best-addon/minipack/input') }}">&nbsp;&nbsp;&nbsp;&nbsp;Dashboard AddOn</a></li>
+					      <li><a href="{{ URL('/best-addon') }}">&nbsp;&nbsp;&nbsp;&nbsp;Dashboard AddOn</a></li>
 					      <li><a href="{{ URL('/best-addon/minipack/input') }}">&nbsp;&nbsp;&nbsp;&nbsp;Input</a></li>
-					      <li class="divider"></li>
 					      <li><a href="{{ URL('/best-addon/minipack/realisasi') }}">&nbsp;&nbsp;&nbsp;&nbsp;Realisasi</a></li>  
 					  	<li><a href="{{ URL('/best-addon/minipack/target') }}">&nbsp;&nbsp;&nbsp;&nbsp;Target</a></li>  
 					    </ul>
@@ -86,24 +85,25 @@
 	            								{
 	            									$tgl=$x;
 	            								}
-	            								$jml=App\addon::select(DB::raw('SUM(realisasi_minipack) as total_reminipack'))->where('witel',$wit->witel)->groupby('witel')->where('tanggal',$thn."-".$bln."-".$tgl)->first();
+	            								$jml=App\addon::select(DB::raw('SUM(target_minipack) as total_targetminipack'))->where('witel',$wit->witel)->groupby('witel')->where('tanggal',$thn."-".$bln."-".$tgl)->first();
 	            							?>
 	            							@if($jml == null)
 	            								<td>0</td>
 	            							@else
-												<td>{{$jml->total_reminipack}}</td>
+												<td>{{$jml->total_targetminipack}}</td>
 											@endif
 			            				@endfor
 
-			            				@if($wit->total_reminipack==null)
+			            				@if($wit->total_targetminipack==null)
                         						<td align="center" valign="middle">0</td>
                         				@else
-                        						<td align="center" valign="middle">{{$wit->total_reminipack}}</td>
+                        						<td align="center" valign="middle">{{$wit->total_targetminipack}}</td>
                         				@endif
 	            					</tr>
 	            				@endforeach      
 	            			</tbody>
 	            		</table>
+	            		@if(Auth::check())
 						<div class="content mt-3">
 				            <div class="animated fadeIn">
 
@@ -114,7 +114,7 @@
 				                            <div class="card-header">
 				                                <strong>Form Edit Data</strong> 
 				                            </div>
-				                            <form method="post" action="{{url('/realisasi_minipack')}}">
+				                            <form method="post" action="{{url('/target_minipack')}}">
 				                                {{csrf_field()}}
 				                            	<div class="card-body card-block">
 				                                	<div class="form-group">
@@ -137,10 +137,10 @@
 					                                </div>
 
 					                                <div class="form-group">
-					                                    <label class=" form-control-label">Jumlah Realisasi Minipack</label>
+					                                    <label class=" form-control-label">Jumlah Target Minipack</label>
 					                                    <div class="input-group">
 					                                        <div class="input-group-addon"><i class="fa fa-usd"></i></div>
-					                                        <input type="text" name="realisasi_minipack" class="form-control">
+					                                        <input type="text" name="target_minipack" class="form-control">
 					                                    </div>
 					                                    <!--<small class="form-text text-muted">ex. 99-9999999</small>-->
 					                                </div>
@@ -152,6 +152,7 @@
 					            </div>
 					        </div>
 					    </div>
+					    @endif
 					</div>
 				</div>
 			</div>

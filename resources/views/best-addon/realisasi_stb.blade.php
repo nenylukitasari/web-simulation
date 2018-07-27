@@ -3,10 +3,10 @@
 	<link rel="stylesheet" href="{{asset('assets/css/lib/datatable/dataTables.bootstrap.min.css')}}">
 @endsection
 @section('title')
-	Minipack
+	STB Tambahan
 @endsection
 @section('right_title')
-	Best Add-On / Minipack / Realisasi
+	Best Add-On / STB Tambahan / Realisasi
 @endsection
 @section('content')
 	<div class="animated fadeIn">
@@ -18,7 +18,7 @@
 	            	$tahun=['2018','2019','2020'];
 	            @endphp
 				<div class="form-inline">
-	                    <form class="search-form" method="post" nama="blnn" action="{{url('/searchrealisasiminipack')}}">
+	                    <form class="search-form" method="post" nama="blnn" action="{{url('/searchrealisasistb')}}">
 	                        {{csrf_field()}}
 						<select name="bln">
 							@foreach($tahun as $thnx)
@@ -41,13 +41,13 @@
 	                    </form>
 	                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 	                    <div class="dropdown">
-					    <button class="btn btn-primary btn-sm" type="button" data-toggle="dropdown"><b>MINIPACK</b>
+					    <button class="btn btn-primary btn-sm" type="button" data-toggle="dropdown"><b>STB Tambahan</b>
 					    <span class="caret"></span></button>
 					    <ul class="dropdown-menu">
 					      <li><a href="{{ URL('/best-addon') }}">&nbsp;&nbsp;&nbsp;&nbsp;Dashboard AddOn</a></li>
-					      <li><a href="{{ URL('/best-addon/minipack/input') }}">&nbsp;&nbsp;&nbsp;&nbsp;Input</a></li>
-					      <li><a href="{{ URL('/best-addon/minipack/realisasi') }}">&nbsp;&nbsp;&nbsp;&nbsp;Realisasi</a></li>  
-					  	<li><a href="{{ URL('/best-addon/minipack/target') }}">&nbsp;&nbsp;&nbsp;&nbsp;Target</a></li>  
+					      <li><a href="{{ URL('/best-addon/stb/input') }}">&nbsp;&nbsp;&nbsp;&nbsp;Input</a></li>
+					      <li><a href="{{ URL('/best-addon/stb/realisasi') }}">&nbsp;&nbsp;&nbsp;&nbsp;Realisasi</a></li>  
+					  	<li><a href="{{ URL('/best-addon/stb/target') }}">&nbsp;&nbsp;&nbsp;&nbsp;Target</a></li>  
 					    </ul>
 					  </div>
 	                </div>
@@ -59,7 +59,7 @@
 			<div class="col-md-12">
 	            <div class="card">
 	                <div class="card-header">
-	                   <strong class="card-title">Data Minipack bulan ke - {{$bln}}</strong>
+	                   <strong class="card-title">Data STB Tambahan bulan ke - {{$bln}}</strong>
 	                </div>
 	                <div class="card-body">
 	          			<table id="bootstrap-data-table-export" class="table table-striped table-bordered">
@@ -85,19 +85,19 @@
 	            								{
 	            									$tgl=$x;
 	            								}
-	            								$jml=App\addon::select(DB::raw('SUM(realisasi_minipack) as total_reminipack'))->where('witel',$wit->witel)->groupby('witel')->where('tanggal',$thn."-".$bln."-".$tgl)->first();
+	            								$jml=App\addon::select(DB::raw('SUM(realisasi_stb) as total_restb'))->where('witel',$wit->witel)->groupby('witel')->where('tanggal',$thn."-".$bln."-".$tgl)->first();
 	            							?>
 	            							@if($jml == null)
 	            								<td>0</td>
 	            							@else
-												<td>{{$jml->total_reminipack}}</td>
+												<td>{{$jml->total_restb}}</td>
 											@endif
 			            				@endfor
 
-			            				@if($wit->total_reminipack==null)
+			            				@if($wit->total_restb==null)
                         						<td align="center" valign="middle">0</td>
                         				@else
-                        						<td align="center" valign="middle">{{$wit->total_reminipack}}</td>
+                        						<td align="center" valign="middle">{{$wit->total_restb}}</td>
                         				@endif
 	            					</tr>
 	            				@endforeach      
@@ -114,7 +114,7 @@
 				                            <div class="card-header">
 				                                <strong>Form Edit Data</strong> 
 				                            </div>
-				                            <form method="post" action="{{url('/realisasi_minipack')}}">
+				                            <form method="post" action="{{url('/realisasi_stb')}}">
 				                                {{csrf_field()}}
 				                            	<div class="card-body card-block">
 				                                	<div class="form-group">
@@ -137,10 +137,10 @@
 					                                </div>
 
 					                                <div class="form-group">
-					                                    <label class=" form-control-label">Jumlah Realisasi Minipack</label>
+					                                    <label class=" form-control-label">Jumlah Realisasi STB Tambahan</label>
 					                                    <div class="input-group">
 					                                        <div class="input-group-addon"><i class="fa fa-usd"></i></div>
-					                                        <input type="text" name="realisasi_minipack" class="form-control">
+					                                        <input type="text" name="realisasi_stb" class="form-control">
 					                                    </div>
 					                                    <!--<small class="form-text text-muted">ex. 99-9999999</small>-->
 					                                </div>

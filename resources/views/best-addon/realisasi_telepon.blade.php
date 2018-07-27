@@ -3,10 +3,10 @@
 	<link rel="stylesheet" href="{{asset('assets/css/lib/datatable/dataTables.bootstrap.min.css')}}">
 @endsection
 @section('title')
-	Minipack
+	Telepon Mania
 @endsection
 @section('right_title')
-	Best Add-On / Minipack / Realisasi
+	Best Add-On / Telepon Mania / Realisasi
 @endsection
 @section('content')
 	<div class="animated fadeIn">
@@ -18,7 +18,7 @@
 	            	$tahun=['2018','2019','2020'];
 	            @endphp
 				<div class="form-inline">
-	                    <form class="search-form" method="post" nama="blnn" action="{{url('/searchrealisasiminipack')}}">
+	                    <form class="search-form" method="post" nama="blnn" action="{{url('/searchrealisasitelepon')}}">
 	                        {{csrf_field()}}
 						<select name="bln">
 							@foreach($tahun as $thnx)
@@ -41,13 +41,13 @@
 	                    </form>
 	                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 	                    <div class="dropdown">
-					    <button class="btn btn-primary btn-sm" type="button" data-toggle="dropdown"><b>MINIPACK</b>
+					    <button class="btn btn-primary btn-sm" type="button" data-toggle="dropdown"><b>Telepon Mania</b>
 					    <span class="caret"></span></button>
 					    <ul class="dropdown-menu">
 					      <li><a href="{{ URL('/best-addon') }}">&nbsp;&nbsp;&nbsp;&nbsp;Dashboard AddOn</a></li>
-					      <li><a href="{{ URL('/best-addon/minipack/input') }}">&nbsp;&nbsp;&nbsp;&nbsp;Input</a></li>
-					      <li><a href="{{ URL('/best-addon/minipack/realisasi') }}">&nbsp;&nbsp;&nbsp;&nbsp;Realisasi</a></li>  
-					  	<li><a href="{{ URL('/best-addon/minipack/target') }}">&nbsp;&nbsp;&nbsp;&nbsp;Target</a></li>  
+					      <li><a href="{{ URL('/best-addon/telepon/input') }}">&nbsp;&nbsp;&nbsp;&nbsp;Input</a></li>
+					      <li><a href="{{ URL('/best-addon/telepon/realisasi') }}">&nbsp;&nbsp;&nbsp;&nbsp;Realisasi</a></li>  
+					  	<li><a href="{{ URL('/best-addon/telepon/target') }}">&nbsp;&nbsp;&nbsp;&nbsp;Target</a></li>  
 					    </ul>
 					  </div>
 	                </div>
@@ -59,7 +59,7 @@
 			<div class="col-md-12">
 	            <div class="card">
 	                <div class="card-header">
-	                   <strong class="card-title">Data Minipack bulan ke - {{$bln}}</strong>
+	                   <strong class="card-title">Data Telepon Mania bulan ke - {{$bln}}</strong>
 	                </div>
 	                <div class="card-body">
 	          			<table id="bootstrap-data-table-export" class="table table-striped table-bordered">
@@ -85,19 +85,19 @@
 	            								{
 	            									$tgl=$x;
 	            								}
-	            								$jml=App\addon::select(DB::raw('SUM(realisasi_minipack) as total_reminipack'))->where('witel',$wit->witel)->groupby('witel')->where('tanggal',$thn."-".$bln."-".$tgl)->first();
+	            								$jml=App\addon::select(DB::raw('SUM(realisasi_telepon) as total_retelepon'))->where('witel',$wit->witel)->groupby('witel')->where('tanggal',$thn."-".$bln."-".$tgl)->first();
 	            							?>
 	            							@if($jml == null)
 	            								<td>0</td>
 	            							@else
-												<td>{{$jml->total_reminipack}}</td>
+												<td>{{$jml->total_retelepon}}</td>
 											@endif
 			            				@endfor
 
-			            				@if($wit->total_reminipack==null)
+			            				@if($wit->total_retelepon==null)
                         						<td align="center" valign="middle">0</td>
                         				@else
-                        						<td align="center" valign="middle">{{$wit->total_reminipack}}</td>
+                        						<td align="center" valign="middle">{{$wit->total_retelepon}}</td>
                         				@endif
 	            					</tr>
 	            				@endforeach      
@@ -114,7 +114,7 @@
 				                            <div class="card-header">
 				                                <strong>Form Edit Data</strong> 
 				                            </div>
-				                            <form method="post" action="{{url('/realisasi_minipack')}}">
+				                            <form method="post" action="{{url('/realisasi_telepon')}}">
 				                                {{csrf_field()}}
 				                            	<div class="card-body card-block">
 				                                	<div class="form-group">
@@ -137,10 +137,10 @@
 					                                </div>
 
 					                                <div class="form-group">
-					                                    <label class=" form-control-label">Jumlah Realisasi Minipack</label>
+					                                    <label class=" form-control-label">Jumlah Realisasi Telepon Mania</label>
 					                                    <div class="input-group">
 					                                        <div class="input-group-addon"><i class="fa fa-usd"></i></div>
-					                                        <input type="text" name="realisasi_minipack" class="form-control">
+					                                        <input type="text" name="realisasi_telepon" class="form-control">
 					                                    </div>
 					                                    <!--<small class="form-text text-muted">ex. 99-9999999</small>-->
 					                                </div>
