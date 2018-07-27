@@ -207,6 +207,8 @@
 	            								<td>{{number_format(($x->total_reminipack/$x->total_targetminipack*25/100) + ($x->total_restb/$x->total_targetstb*35/100)+ ($x->total_reupspeed/$x->total_targetupspeed*25/100),2)}} % </td>
 	            							@elseif($x->total_targetupspeed==0)
 	            								<td>{{number_format(($x->total_reminipack/$x->total_targetminipack*25/100) + ($x->total_restb/$x->total_targetstb*35/100)+ ($x->total_retelepon/$x->total_targettelepon*15/100),2)}} % </td>
+	            							@else
+	            								<td>{{number_format(($x->total_reminipack/$x->total_targetminipack*25/100) + ($x->total_restb/$x->total_targetstb*35/100)+ ($x->total_retelepon/$x->total_targettelepon*15/100)+($x->total_reupspeed/$x->total_targetupspeed*25/100),2)}} % </td>
 	            							@endif
 
 	            							
