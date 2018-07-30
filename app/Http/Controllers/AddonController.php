@@ -68,20 +68,20 @@ class AddonController extends Controller
             $addon->tanggal=$r->tanggal;
             $addon->witel=$r->witel;
             $addon->input_minipack=$r->input_minipack;
-            $addon->realisasi_minipack=$r->realisasi_minipack;
-            $addon->target_minipack=$r->target_minipack;
+            $addon->realisasi_minipack=0;
+            $addon->target_minipack=0;
 
-            $addon->input_stb=$r->input_stb;
-            $addon->realisasi_stb=$r->realisasi_stb;
-            $addon->target_stb=$r->target_stb;
+            $addon->input_stb=0;
+            $addon->realisasi_stb=0;
+            $addon->target_stb=0;
 
-            $addon->input_telepon=$r->input_telepon;
-            $addon->realisasi_telepon=$r->realisasi_telepon;
-            $addon->target_telepon=$r->target_telepon;
+            $addon->input_telepon=0;
+            $addon->realisasi_telepon=0;
+            $addon->target_telepon=0;
 
-            $addon->input_upspeed=$r->input_upspeed;
-            $addon->realisasi_upspeed=$r->realisasi_upspeed;
-            $addon->target_upspeed=$r->target_upspeed;
+            $addon->input_upspeed=0;
+            $addon->realisasi_upspeed=0;
+            $addon->target_upspeed=0;
         
             $addon->save();
             return redirect('/best-addon/minipack/input');
@@ -167,20 +167,20 @@ class AddonController extends Controller
             $addon->tanggal=$r->tanggal;
             $addon->witel=$r->witel;
             $addon->realisasi_minipack=$r->realisasi_minipack;
-            $addon->input_minipack=$r->input_minipack;
-            $addon->target_minipack=$r->target_minipack;
+            $addon->input_minipack=0;
+            $addon->target_minipack=0;
 
-            $addon->input_stb=$r->input_stb;
-            $addon->realisasi_stb=$r->realisasi_stb;
-            $addon->target_stb=$r->target_stb;
+            $addon->input_stb=0;
+            $addon->realisasi_stb=0;
+            $addon->target_stb=0;
 
-            $addon->input_telepon=$r->input_telepon;
-            $addon->realisasi_telepon=$r->realisasi_telepon;
-            $addon->target_telepon=$r->target_telepon;
+            $addon->input_telepon=0;
+            $addon->realisasi_telepon=0;
+            $addon->target_telepon=0;
 
-            $addon->input_upspeed=$r->input_upspeed;
-            $addon->realisasi_upspeed=$r->realisasi_upspeed;
-            $addon->target_upspeed=$r->target_upspeed;
+            $addon->input_upspeed=0;
+            $addon->realisasi_upspeed=0;
+            $addon->target_upspeed=0;
         
             $addon->save();
             return redirect('/best-addon/minipack/realisasi');
@@ -265,21 +265,21 @@ class AddonController extends Controller
             $addon=new addon();
             $addon->tanggal=$r->tanggal;
             $addon->witel=$r->witel;
-            $addon->realisasi_minipack=$r->realisasi_minipack;
-            $addon->input_minipack=$r->input_minipack;
+            $addon->realisasi_minipack=0;
+            $addon->input_minipack=0;
             $addon->target_minipack=$r->target_minipack;
 
-            $addon->input_stb=$r->input_stb;
-            $addon->realisasi_stb=$r->realisasi_stb;
-            $addon->target_stb=$r->target_stb;
+            $addon->input_stb=0;
+            $addon->realisasi_stb=0;
+            $addon->target_stb=0;
 
-            $addon->input_telepon=$r->input_telepon;
-            $addon->realisasi_telepon=$r->realisasi_telepon;
-            $addon->target_telepon=$r->target_telepon;
+            $addon->input_telepon=0;
+            $addon->realisasi_telepon=0;
+            $addon->target_telepon=0;
 
-            $addon->input_upspeed=$r->input_upspeed;
-            $addon->realisasi_upspeed=$r->realisasi_upspeed;
-            $addon->target_upspeed=$r->target_upspeed;
+            $addon->input_upspeed=0;
+            $addon->realisasi_upspeed=0;
+            $addon->target_upspeed=0;
         
             $addon->save();
             return redirect('/best-addon/minipack/target');
@@ -364,21 +364,21 @@ class AddonController extends Controller
             $addon=new addon();
             $addon->tanggal=$r->tanggal;
             $addon->witel=$r->witel;
-            $addon->input_minipack=$r->input_minipack;
-            $addon->realisasi_minipack=$r->realisasi_minipack;
-            $addon->target_minipack=$r->target_minipack;
+            $addon->input_minipack=0;
+            $addon->realisasi_minipack=0;
+            $addon->target_minipack=0;
 
             $addon->input_stb=$r->input_stb;
-            $addon->realisasi_stb=$r->realisasi_stb;
-            $addon->target_stb=$r->target_stb;
+            $addon->realisasi_stb=0;
+            $addon->target_stb=0;
 
-            $addon->input_telepon=$r->input_telepon;
-            $addon->realisasi_telepon=$r->realisasi_telepon;
-            $addon->target_telepon=$r->target_telepon;
+            $addon->input_telepon=0;
+            $addon->realisasi_telepon=0;
+            $addon->target_telepon=0;
 
-            $addon->input_upspeed=$r->input_upspeed;
-            $addon->realisasi_upspeed=$r->realisasi_upspeed;
-            $addon->target_upspeed=$r->target_upspeed;
+            $addon->input_upspeed=0;
+            $addon->realisasi_upspeed=0;
+            $addon->target_upspeed=0;
         
             $addon->save();
             return redirect('/best-addon/stb/input');
@@ -463,21 +463,21 @@ class AddonController extends Controller
             $addon=new addon();
             $addon->tanggal=$r->tanggal;
             $addon->witel=$r->witel;
-            $addon->realisasi_minipack=$r->realisasi_minipack;
-            $addon->input_minipack=$r->input_minipack;
-            $addon->target_minipack=$r->target_minipack;
+            $addon->realisasi_minipack=0;
+            $addon->input_minipack=0;
+            $addon->target_minipack=0;
 
-            $addon->input_stb=$r->input_stb;
+            $addon->input_stb=0;
             $addon->realisasi_stb=$r->realisasi_stb;
-            $addon->target_stb=$r->target_stb;
+            $addon->target_stb=0;
 
-            $addon->input_telepon=$r->input_telepon;
-            $addon->realisasi_telepon=$r->realisasi_telepon;
-            $addon->target_telepon=$r->target_telepon;
+            $addon->input_telepon=0;
+            $addon->realisasi_telepon=0;
+            $addon->target_telepon=0;
 
-            $addon->input_upspeed=$r->input_upspeed;
-            $addon->realisasi_upspeed=$r->realisasi_upspeed;
-            $addon->target_upspeed=$r->target_upspeed;
+            $addon->input_upspeed=0;
+            $addon->realisasi_upspeed=0;
+            $addon->target_upspeed=0;
         
             $addon->save();
             return redirect('/best-addon/stb/realisasi');
@@ -562,21 +562,21 @@ class AddonController extends Controller
             $addon=new addon();
             $addon->tanggal=$r->tanggal;
             $addon->witel=$r->witel;
-            $addon->realisasi_minipack=$r->realisasi_minipack;
-            $addon->input_minipack=$r->input_minipack;
-            $addon->target_minipack=$r->target_minipack;
+            $addon->realisasi_minipack=0;
+            $addon->input_minipack=0;
+            $addon->target_minipack=0;
 
-            $addon->input_stb=$r->input_stb;
-            $addon->realisasi_stb=$r->realisasi_stb;
+            $addon->input_stb=0;
+            $addon->realisasi_stb=0;
             $addon->target_stb=$r->target_stb;
 
-            $addon->input_telepon=$r->input_telepon;
-            $addon->realisasi_telepon=$r->realisasi_telepon;
-            $addon->target_telepon=$r->target_telepon;
+            $addon->input_telepon=0;
+            $addon->realisasi_telepon=0;
+            $addon->target_telepon=0;
 
-            $addon->input_upspeed=$r->input_upspeed;
-            $addon->realisasi_upspeed=$r->realisasi_upspeed;
-            $addon->target_upspeed=$r->target_upspeed;
+            $addon->input_upspeed=0;
+            $addon->realisasi_upspeed=0;
+            $addon->target_upspeed=0;
         
             $addon->save();
             return redirect('/best-addon/stb/target');
@@ -661,21 +661,21 @@ class AddonController extends Controller
             $addon=new addon();
             $addon->tanggal=$r->tanggal;
             $addon->witel=$r->witel;
-            $addon->input_minipack=$r->input_minipack;
-            $addon->realisasi_minipack=$r->realisasi_minipack;
-            $addon->target_minipack=$r->target_minipack;
+            $addon->input_minipack=0;
+            $addon->realisasi_minipack=0;
+            $addon->target_minipack=0;
 
-            $addon->input_stb=$r->input_stb;
-            $addon->realisasi_stb=$r->realisasi_stb;
-            $addon->target_stb=$r->target_stb;
+            $addon->input_stb=0;
+            $addon->realisasi_stb=0;
+            $addon->target_stb=0;
 
             $addon->input_telepon=$r->input_telepon;
-            $addon->realisasi_telepon=$r->realisasi_telepon;
-            $addon->target_telepon=$r->target_telepon;
+            $addon->realisasi_telepon=0;
+            $addon->target_telepon=0;
 
-            $addon->input_upspeed=$r->input_upspeed;
-            $addon->realisasi_upspeed=$r->realisasi_upspeed;
-            $addon->target_upspeed=$r->target_upspeed;
+            $addon->input_upspeed=0;
+            $addon->realisasi_upspeed=0;
+            $addon->target_upspeed=0;
         
             $addon->save();
             return redirect('/best-addon/telepon/input');
@@ -760,21 +760,21 @@ class AddonController extends Controller
             $addon=new addon();
             $addon->tanggal=$r->tanggal;
             $addon->witel=$r->witel;
-            $addon->realisasi_minipack=$r->realisasi_minipack;
-            $addon->input_minipack=$r->input_minipack;
-            $addon->target_minipack=$r->target_minipack;
+            $addon->realisasi_minipack=0;
+            $addon->input_minipack=0;
+            $addon->target_minipack=0;
 
-            $addon->input_stb=$r->input_stb;
-            $addon->realisasi_stb=$r->realisasi_stb;
-            $addon->target_stb=$r->target_stb;
+            $addon->input_stb=0;
+            $addon->realisasi_stb=0;
+            $addon->target_stb=0;
 
-            $addon->input_telepon=$r->input_telepon;
+            $addon->input_telepon=0;
             $addon->realisasi_telepon=$r->realisasi_telepon;
-            $addon->target_telepon=$r->target_telepon;
+            $addon->target_telepon=0;
 
-            $addon->input_upspeed=$r->input_upspeed;
-            $addon->realisasi_upspeed=$r->realisasi_upspeed;
-            $addon->target_upspeed=$r->target_upspeed;
+            $addon->input_upspeed=0;
+            $addon->realisasi_upspeed=0;
+            $addon->target_upspeed=0;
         
             $addon->save();
             return redirect('/best-addon/telepon/realisasi');
@@ -859,21 +859,21 @@ class AddonController extends Controller
             $addon=new addon();
             $addon->tanggal=$r->tanggal;
             $addon->witel=$r->witel;
-            $addon->realisasi_minipack=$r->realisasi_minipack;
-            $addon->input_minipack=$r->input_minipack;
-            $addon->target_minipack=$r->target_minipack;
+            $addon->realisasi_minipack=0;
+            $addon->input_minipack=0;
+            $addon->target_minipack=0;
 
-            $addon->input_stb=$r->input_stb;
-            $addon->realisasi_stb=$r->realisasi_stb;
-            $addon->target_stb=$r->target_stb;
+            $addon->input_stb=0;
+            $addon->realisasi_stb=0;
+            $addon->target_stb=0;
 
-            $addon->input_telepon=$r->input_telepon;
-            $addon->realisasi_telepon=$r->realisasi_telepon;
+            $addon->input_telepon=0;
+            $addon->realisasi_telepon=0;
             $addon->target_telepon=$r->target_telepon;
 
-            $addon->input_upspeed=$r->input_upspeed;
-            $addon->realisasi_upspeed=$r->realisasi_upspeed;
-            $addon->target_upspeed=$r->target_upspeed;
+            $addon->input_upspeed=0;
+            $addon->realisasi_upspeed=0;
+            $addon->target_upspeed=0;
         
             $addon->save();
             return redirect('/best-addon/telepon/target');
@@ -958,21 +958,21 @@ class AddonController extends Controller
             $addon=new addon();
             $addon->tanggal=$r->tanggal;
             $addon->witel=$r->witel;
-            $addon->input_minipack=$r->input_minipack;
-            $addon->realisasi_minipack=$r->realisasi_minipack;
-            $addon->target_minipack=$r->target_minipack;
+            $addon->input_minipack=0;
+            $addon->realisasi_minipack=0;
+            $addon->target_minipack=0;
 
-            $addon->input_stb=$r->input_stb;
-            $addon->realisasi_stb=$r->realisasi_stb;
-            $addon->target_stb=$r->target_stb;
+            $addon->input_stb=0;
+            $addon->realisasi_stb=0;
+            $addon->target_stb=0;
 
-            $addon->input_telepon=$r->input_telepon;
-            $addon->realisasi_telepon=$r->realisasi_telepon;
-            $addon->target_telepon=$r->target_telepon;
+            $addon->input_telepon=0;
+            $addon->realisasi_telepon=0;
+            $addon->target_telepon=0;
 
             $addon->input_upspeed=$r->input_upspeed;
-            $addon->realisasi_upspeed=$r->realisasi_upspeed;
-            $addon->target_upspeed=$r->target_upspeed;
+            $addon->realisasi_upspeed=0;
+            $addon->target_upspeed=0;
         
             $addon->save();
             return redirect('/best-addon/upspeed/input');
@@ -1057,21 +1057,21 @@ class AddonController extends Controller
             $addon=new addon();
             $addon->tanggal=$r->tanggal;
             $addon->witel=$r->witel;
-            $addon->realisasi_minipack=$r->realisasi_minipack;
-            $addon->input_minipack=$r->input_minipack;
-            $addon->target_minipack=$r->target_minipack;
+            $addon->realisasi_minipack=0;
+            $addon->input_minipack=0;
+            $addon->target_minipack=0;
 
-            $addon->input_stb=$r->input_stb;
-            $addon->realisasi_stb=$r->realisasi_stb;
-            $addon->target_stb=$r->target_stb;
+            $addon->input_stb=0;
+            $addon->realisasi_stb=0;
+            $addon->target_stb=0;
 
-            $addon->input_telepon=$r->input_telepon;
-            $addon->realisasi_telepon=$r->realisasi_telepon;
-            $addon->target_telepon=$r->target_telepon;
+            $addon->input_telepon=0;
+            $addon->realisasi_telepon=0;
+            $addon->target_telepon=0;
 
-            $addon->input_upspeed=$r->input_upspeed;
+            $addon->input_upspeed=0;
             $addon->realisasi_upspeed=$r->realisasi_upspeed;
-            $addon->target_upspeed=$r->target_upspeed;
+            $addon->target_upspeed=0;
         
             $addon->save();
             return redirect('/best-addon/upspeed/realisasi');
@@ -1156,20 +1156,20 @@ class AddonController extends Controller
             $addon=new addon();
             $addon->tanggal=$r->tanggal;
             $addon->witel=$r->witel;
-            $addon->realisasi_minipack=$r->realisasi_minipack;
-            $addon->input_minipack=$r->input_minipack;
-            $addon->target_minipack=$r->target_minipack;
+            $addon->realisasi_minipack=0;
+            $addon->input_minipack=0;
+            $addon->target_minipack=0;
 
-            $addon->input_stb=$r->input_stb;
-            $addon->realisasi_stb=$r->realisasi_stb;
-            $addon->target_stb=$r->target_stb;
+            $addon->input_stb=0;
+            $addon->realisasi_stb=0;
+            $addon->target_stb=0;
 
-            $addon->input_telepon=$r->input_telepon;
-            $addon->realisasi_telepon=$r->realisasi_telepon;
-            $addon->target_telepon=$r->target_telepon;
+            $addon->input_telepon=0;
+            $addon->realisasi_telepon=0;
+            $addon->target_telepon=0;
 
-            $addon->input_upspeed=$r->input_upspeed;
-            $addon->realisasi_upspeed=$r->realisasi_upspeed;
+            $addon->input_upspeed=0;
+            $addon->realisasi_upspeed=0;
             $addon->target_upspeed=$r->target_upspeed;
         
             $addon->save();
