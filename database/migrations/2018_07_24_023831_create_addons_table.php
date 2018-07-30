@@ -20,18 +20,22 @@ class CreateAddonsTable extends Migration
             $table->integer('input_minipack')->nullable();
             $table->integer('realisasi_minipack')->nullable();
             $table->integer('target_minipack')->nullable();
+            $table->integer('achievement_minipack')->nullable();
             
             $table->integer('input_stb')->nullable();
             $table->integer('realisasi_stb')->nullable();
             $table->integer('target_stb')->nullable();
+            $table->integer('achievement_stb')->nullable();
             
             $table->integer('input_telepon')->nullable();
             $table->integer('realisasi_telepon')->nullable();
             $table->integer('target_telepon')->nullable();
+            $table->integer('achievement_telepon')->nullable();
             
             $table->integer('input_upspeed')->nullable();
             $table->integer('realisasi_upspeed')->nullable();
             $table->integer('target_upspeed')->nullable();
+            $table->integer('achievement_upspeed')->nullable();
             $table->timestamps();
         });
     }
