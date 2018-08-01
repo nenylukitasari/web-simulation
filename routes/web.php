@@ -35,7 +35,7 @@ Route::get('/best-ott/iflix-coba','OttController@search_hal');
 Route::post('/best-ott/searchsales','OttController@postsales');
 
 //Route::post('/search','OttController@blnsearch');
-Route::post('/best-ott/searchbestott','OttController@searchbestottx');
+Route::post('/searchbestott','OttController@searchbestottx');
 
 //harus auth
 Route::post('best-ott/inputcatchplay','OttController@inputcatchplay');

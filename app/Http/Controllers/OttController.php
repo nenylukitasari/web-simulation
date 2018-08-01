@@ -142,9 +142,10 @@ class OttController extends Controller
                 $ott->tanggal=$r->tanggal;
                 $ott->witel=$r->witel;
                 $ott->catchplay=$r->catchplay;//
-                $ott->iflix=$r->hooq=$r->movin=$r->salesDIY=0;//
-                $ott->jml_ott=$r->catchplay;//
-                $ott->salesDIY=$r->salesDIY;
+                $ott->iflix=0;//
+                $ott->hooq=0;
+                $ott->movin=0;
+                $ott->salesDIY=0;
                 $ott->treshold=70;
                 $ott->save();
                 return redirect('best-ott/catchplay');
@@ -231,9 +232,10 @@ class OttController extends Controller
             $ott->tanggal=$r->tanggal;
             $ott->witel=$r->witel;
             $ott->iflix=$r->iflix;//
-            $ott->catchplay=$r->hooq=$r->movin=$r->salesDIY=0;//
-            $ott->jml_ott=$r->iflix+$r->catchplay+$r->hooq+$r->movin;//
-            $ott->salesDIY=$r->salesDIY;
+            $ott->catchplay=0;//
+            $ott->hooq=0;
+            $ott->movin=0;
+            $ott->salesDIY=0;
             $ott->treshold=70;
             $ott->save();
             return redirect('best-ott/iflix');
@@ -319,9 +321,10 @@ public function gethooq()
                 $ott->tanggal=$r->tanggal;
                 $ott->witel=$r->witel;
                 $ott->hooq=$r->hooq;//
-                $ott->iflix=$r->movin=$r->movin=$r->salesDIY=0;//
-               // $ott->jml_ott=$r->iflix+$r->catchplay+$r->hooq+$r->movin;//
-                $ott->salesDIY=$r->salesDIY;
+                $ott->catchplay=0;
+                $ott->iflix=0;//
+                $ott->movin=0;
+                $ott->salesDIY=0;
                 $ott->treshold=70;
                 $ott->save();
                 return redirect('best-ott/hooq');
@@ -407,9 +410,10 @@ public function gethooq()
                 $ott->tanggal=$r->tanggal;
                 $ott->witel=$r->witel;
                 $ott->salesDIY=$r->salesDIY;//
-                $ott->iflix=$r->hooq=$r->movin=$r->catchplay=0;//
-               // $ott->jml_ott=$r->catchplay;//
-                //$ott->salesDIY=$r->salesDIY;
+                $ott->catchplay=0;
+                $ott->iflix=0;//
+                $ott->hooq=0;
+                $ott->movin=0;
                 $ott->treshold=70;
                 $ott->save();
                 return redirect('best-ott/salesDIY');
@@ -495,9 +499,10 @@ public function gethooq()
                 $ott->tanggal=$r->tanggal;
                 $ott->witel=$r->witel;
                 $ott->movin=$r->movin;//
-                $ott->iflix=$r->hooq=$r->catchplay=$r->salesDIY=0;//
-                //$ott->jml_ott=$r->catchplay;//
-               // $ott->salesDIY=$r->salesDIY;
+                $ott->catchplay=0;
+                $ott->iflix=0;//
+                $ott->hooq=0;
+                $ott->salesDIY=0;
                 $ott->treshold=70;
                 $ott->save();
                 return redirect('best-ott/movin');

@@ -69,7 +69,7 @@
 	            <div class="card">
 	               <div class="card-header">
 	                   <strong class="card-title">Data Movin bulan ke - {{$bln}} </strong>
-	                </div> -->
+	                </div> 
 	                <div class="card-body">
 	          			<table id="bootstrap-data-table-export" class="table table-striped table-bordered">
 	            			<thead>
