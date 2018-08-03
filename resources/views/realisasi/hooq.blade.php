@@ -137,7 +137,7 @@
 					                                    <label class=" form-control-label">Nama Witel</label>
 					                                    <div class="input-group">
 					                                        <div class="input-group-addon"><i class="fa fa-bank"></i></div>
-					                                        <input type="text" name="witel" class="form-control">
+					                                        <input type="text" name="witel" class="form-control" onkeyup="this.value = this.value.toUpperCase()">
 					                                    </div>
 
 					                                    <!--<small class="form-text text-muted">ex. (999) 999-9999</small>-->
