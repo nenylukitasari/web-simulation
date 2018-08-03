@@ -3,7 +3,7 @@
 	<link rel="stylesheet" href="{{asset('assets/css/lib/datatable/dataTables.bootstrap.min.css')}}">
 @endsection
 @section('title')
-	Best OTT
+	Dashboard OTT
 @endsection
 @section('right_title')
 	Realisasi / Best OTT
