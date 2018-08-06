@@ -52,6 +52,9 @@
                         <li>
                             <a href="{{ URL('/best-pullput') }}"> <i class="menu-icon fa fa-dashboard"></i>Best-Pull Put </a>
                         </li>
+                         <li>
+                            <a href="{{ URL('/best-broadband') }}"> <i class="menu-icon fa fa-dashboard"></i>Best-Broadband </a>
+                        </li>
                         
                 </ul>
             </div><!-- /.navbar-collapse -->
