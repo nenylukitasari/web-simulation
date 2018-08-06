@@ -71,7 +71,7 @@
 	            			<thead>
 	            				<th align="center" valign="middle">Witel</th>
 	            				@for($x=1;$x<=$jmlhari;$x++)
-	            					<th align="center" valign="middle">{{$x}}</th>
+	            					<td align="center" valign="middle"><b>{{$x}}</b></td>
 	            				@endfor
 	            				<th align="center" valign="middle">Total</th>
 	            			</thead>
