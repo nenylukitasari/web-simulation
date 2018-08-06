@@ -49,6 +49,10 @@
                         <li>
                             <a href="{{ URL('/best-addon') }}"> <i class="menu-icon fa fa-dashboard"></i>Best-AddOn </a>
                         </li>
+                        <li>
+                            <a href="{{ URL('/best-pullput') }}"> <i class="menu-icon fa fa-dashboard"></i>Best-Pull Put </a>
+                        </li>
+                        
                 </ul>
             </div><!-- /.navbar-collapse -->
         </nav>

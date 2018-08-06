@@ -37,36 +37,13 @@ Route::post('/best-ott/searchsales','OttController@postsales');
 //Route::post('/search','OttController@blnsearch');
 Route::post('/searchbestott','OttController@searchbestottx');
 
-//harus auth
-Route::post('best-ott/inputcatchplay','OttController@inputcatchplay');
-Route::post('/best-ott/inputiflix','OttController@inputiflix');
-Route::post('/best-ott/inputhooq','OttController@inputhooq');
-Route::post('/best-ott/inputmovin','OttController@inputmovin');
-Route::post('/best-ott/inputsales','OttController@inputsales');
-//
 //Route::get('/form','OttController@form');
 //Route::post('/input','OttController@input');
-
-
-
-	//Route::get('/admin/realisasi/best-ott/form','OttController@form');
-	//Route::post('/input','OttController@input');
 
 Route::get('/login', 'MainController@index');
 Route::post('/login/checklogin', 'MainController@checklogin');
 Route::get('admin/logout', 'MainController@logout');
 
-//ADMIN
-Route::group(['middleware' => 'authenticated'], function() {
-	Route::get('/admin', 'MainController@successlogin');
-	Route::get('/inputcatchplay', 'MainController@successlogin');
-	Route::get('/inputiflix', 'MainController@successlogin');
-	Route::get('/inputhooq', 'MainController@successlogin');
-	Route::get('/inputvin', 'MainController@successlogin');
-	Route::get('/inputsales', 'MainController@successlogin');
-
-
-});
 //ADMIN
 Route::group(['middleware' => 'authenticated'], function() {
 	Route::get('/admin', 'MainController@successlogin');
@@ -86,6 +63,16 @@ Route::group(['middleware' => 'authenticated'], function() {
 	Route::post('/input_upspeed','AddonController@input_upspeed');
 	Route::post('/realisasi_upspeed','AddonController@realisasi_upspeed');
 	Route::post('/target_upspeed','AddonController@target_upspeed');
+
+	Route::post('best-ott/inputcatchplay','OttController@inputcatchplay');
+	Route::post('/best-ott/inputiflix','OttController@inputiflix');
+	Route::post('/best-ott/inputhooq','OttController@inputhooq');
+	Route::post('/best-ott/inputmovin','OttController@inputmovin');
+	Route::post('/best-ott/inputsales','OttController@inputsales');
+
+	Route::post('/salespush','PullPutController@input_salespush');
+	Route::post('/salespull','PullPutController@input_salespull');
+	Route::post('/salesput','PullPutController@input_salesput');
 
 });
 
@@ -120,4 +107,16 @@ Route::post('/searchtargettelepon','AddonController@posttelepon_target');
 Route::get('/best-addon/upspeed/target','AddonController@getupspeed_target');
 Route::post('/searchtargetupspeed','AddonController@postupspeed_target');
 
+//best-pullput
+Route::get('/best-pullput','PullPutController@index');
+Route::post('/searchbestpullput','PullPutController@searchbestpullput');
+
+Route::get('/best-pullput/salespush','PullPutController@getsalespush');
+Route::post('/searchsalespush','PullPutController@postsalespush');
+
+Route::post('/searchsalespull','PullPutController@postsalespull');
+Route::get('/best-pullput/salespull','PullPutController@getsalespull');
+
+Route::post('/searchsalesput','PullPutController@postsalesput');
+Route::get('/best-pullput/salesput','PullPutController@getsalesput');
 
