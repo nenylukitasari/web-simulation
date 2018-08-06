@@ -44,6 +44,29 @@ Route::get('/login', 'MainController@index');
 Route::post('/login/checklogin', 'MainController@checklogin');
 Route::get('admin/logout', 'MainController@logout');
 
+//broadband
+Route::get('/best-broadband','BroadbandController@index');
+Route::post('/searchbroadband','BroadbandController@searchbroadband');
+
+Route::get('/best-broadband/duapuluh','BroadbandController@getduapuluh');
+//Route::post('/best-broadband/searchduapuluh','BroadbandController@searchduapuluh');
+Route::post('/best-broadband/searchduapuluh','BroadbandController@postduapuluh');
+
+Route::get('/best-broadband/tigapuluh','BroadbandController@gettigapuluh');
+Route::post('/best-broadband/searchtigapuluh','BroadbandController@posttigapuluh');
+
+Route::get('/best-broadband/empatpuluh','BroadbandController@getempatpuluh');
+Route::post('/best-broadband/searchempatpuluh','BroadbandController@postempatpuluh');
+
+Route::get('/best-broadband/limapuluh','BroadbandController@getlimapuluh');
+Route::post('/best-broadband/searchlimapuluh','BroadbandController@postlimapuluh');
+
+Route::get('/best-broadband/seratus','BroadbandController@getseratus');
+Route::post('/best-broadband/searchseratus','BroadbandController@postseratus');
+
+Route::get('/best-broadband/ps','BroadbandController@gettotalps');
+Route::post('/best-broadband/searchps','BroadbandController@posttotalps');
+
 //ADMIN
 Route::group(['middleware' => 'authenticated'], function() {
 	Route::get('/admin', 'MainController@successlogin');
@@ -69,6 +92,13 @@ Route::group(['middleware' => 'authenticated'], function() {
 	Route::post('/best-ott/inputhooq','OttController@inputhooq');
 	Route::post('/best-ott/inputmovin','OttController@inputmovin');
 	Route::post('/best-ott/inputsales','OttController@inputsales');
+
+	Route::post('/best-broadband/inputduapuluh','BroadbandController@inputduapuluh');
+	Route::post('/best-broadband/inputtigapuluh','BroadbandController@inputtigapuluh');
+	Route::post('/best-broadband/inputempatpuluh','BroadbandController@inputempatpuluh');
+	Route::post('/best-broadband/inputlimapuluh','BroadbandController@inputlimapuluh');
+	Route::post('/best-broadband/inputseratus','BroadbandController@inputseratus');
+	Route::post('/best-broadband/inputps','BroadbandController@inputtotalps');
 
 	Route::post('/salespush','PullPutController@input_salespush');
 	Route::post('/salespull','PullPutController@input_salespull');
